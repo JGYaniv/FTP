@@ -1,0 +1,40 @@
+{
+  "name": "ftp",
+  "version": "1.0.0",
+  "description": "FTP is a lightweight CRM tool for protest organizers to communicate with fellow activists through SMS messages.   Admins have the ability to log-in via Desktop to add organizers who have access to the Mobile app. These organizer users can specify contacts as specific roles or groups in order to send more relevant messages. For example, users could send out important, “medical assistance requested” text only for contacts that have been designated as medics or a simple reminder message of an upcoming march to all members.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "debug": "nodemon --inspect app.js",
+    "frontend-install": "npm install --prefix frontend",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JGYaniv/FTP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JGYaniv/FTP/issues"
+  },
+  "homepage": "https://github.com/JGYaniv/FTP#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "create-react-app": "^3.4.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.18",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "twilio": "^3.46.0",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
