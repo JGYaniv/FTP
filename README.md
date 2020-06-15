@@ -64,3 +64,5 @@ Admins login to our application through the desktop app built in react, while us
 BONUS FEATURES:
 * Mobile app
 * Two step user auth
+
+## edited by alex
