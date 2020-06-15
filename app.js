@@ -5,6 +5,9 @@ const db = require('./config/keys').mongoURI;
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
+const users = require('./routes/api/users');
+const messages = require('./routes/api/messages');
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
@@ -16,6 +19,9 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 app.get("/", (req, res) => res.send("Hello World"));
+
+app.use("/api/users", users);
+app.use("/api/messages", messages);
 
 const port = process.env.PORT || 5000;
 
