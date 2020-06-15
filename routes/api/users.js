@@ -13,17 +13,17 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.send({
     id: req.user.id,
-    handle: req.user.handle,
+    admin: req.user.admin,
     email: req.user.email
   });
 })
 
 router.post('/register', (req, res) => {
-  const { errors, isValid } = validateRegisterInput(req.body);
+  // const { errors, isValid } = validateRegisterInput(req.body);
 
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  // if (!isValid) {
+  //   return res.status(400).json(errors);
+  // }
 
   User.findOne({ email: req.body.email })
     .then(user => {
@@ -32,9 +32,10 @@ router.post('/register', (req, res) => {
         return res.status(400).json(errors);
       } else {
         const newUser = new User({
-          handle: req.body.handle,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          phone: req.body.phone,
+          admin: req.body.admin
         });
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -51,11 +52,11 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  const { errors, isValid } = validateLoginInput(req.body);
+  // const { errors, isValid } = validateLoginInput(req.body);
 
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  // if (!isValid) {
+  //   return res.status(400).json(errors);
+  // }
 
   const email = req.body.email;
   const password = req.body.password;
@@ -72,8 +73,9 @@ router.post('/login', (req, res) => {
           if (isMatch) {
             const payload = {
               id: user.id,
-              handle: user.handle,
-              email: user.email
+              email: user.email,
+              password: user.password,
+              admin: user.admin,
             };
 
             jwt.sign(
