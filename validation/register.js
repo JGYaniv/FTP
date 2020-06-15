@@ -8,14 +8,13 @@ module.exports = function validateRegisterInput(data) {
   data.password = validText(data.password) ? data.password : '';
   data.password2 = validText(data.password2) ? data.password2 : '';
 
-
   if (Validator.isEmpty(data.email)) {
     errors.email = 'Email field is required';
   }
-
-  // if (!Validator.isEmail(data.email)) {
-  //   errors.email = 'Email is invalid';
-  // }
+  debugger
+  if (!Validator.isEmail(data.email)) {
+    errors.email = 'Email is invalid';
+  }
 
   if (Validator.isEmpty(data.password)) {
     errors.password = 'Password field is required';
@@ -32,6 +31,19 @@ module.exports = function validateRegisterInput(data) {
   if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = 'Passwords must match';
   }
+
+  if (Validator.isEmpty(data.phone)) {
+    errors.phone = 'Phone number is required';
+  }
+
+  if (!Validator.isLength(data.phone, { min: 10, max: 20 })) {
+    errors.password = 'Phone number must be at least 10 digits';
+  }
+
+  if (Validator.isEmpty(data.admin)) {
+    errors.admin = 'Admin field is required';
+  }
+
 
   return {
     errors,
