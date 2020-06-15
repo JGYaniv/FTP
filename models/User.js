@@ -12,7 +12,7 @@ const UserSchema = new Schema({
   },
   phone: {
     type: String,
-    required: true
+    required: false
   },
   date: {
     type: Date,
@@ -20,7 +20,7 @@ const UserSchema = new Schema({
   }, 
   admin: {
     type: Boolean,
-    required: true
+    default: false
   }
 });
 

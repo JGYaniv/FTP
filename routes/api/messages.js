@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.post('/',
-  // passport.authenticate('jwt', { session: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateMessageInput(req.body);
 
@@ -25,7 +25,7 @@ router.post('/',
     }
 
     const newMessage = new Message({
-      // authorId: req.body.authorId
+      authorId: req.body.authorId, 
       text: req.body.text,
     });
 

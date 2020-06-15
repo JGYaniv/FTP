@@ -6,12 +6,12 @@ module.exports = function validateRegisterInput(data) {
 
   data.email = validText(data.email) ? data.email : '';
   data.password = validText(data.password) ? data.password : '';
-  data.password2 = validText(data.password2) ? data.password2 : '';
+  data.passwordConfirm = validText(data.passwordConfirm) ? data.passwordConfirm : '';
 
   if (Validator.isEmpty(data.email)) {
     errors.email = 'Email field is required';
   }
-  debugger
+  
   if (!Validator.isEmail(data.email)) {
     errors.email = 'Email is invalid';
   }
@@ -24,25 +24,25 @@ module.exports = function validateRegisterInput(data) {
     errors.password = 'Password must be at least 6 characters';
   }
 
-  if (Validator.isEmpty(data.password2)) {
-    errors.password2 = 'Confirm Password field is required';
+  if (Validator.isEmpty(data.passwordConfirm)) {
+    errors.passwordConfirm = 'Confirm Password field is required';
   }
 
-  if (!Validator.equals(data.password, data.password2)) {
-    errors.password2 = 'Passwords must match';
+  if (!Validator.equals(data.password, data.passwordConfirm)) {
+    errors.passwordConfirm = 'Passwords must match';
   }
 
-  if (Validator.isEmpty(data.phone)) {
-    errors.phone = 'Phone number is required';
-  }
+  // if (Validator.isEmpty(data.phone)) {
+  //   errors.phone = 'Phone number is required';
+  // }
 
-  if (!Validator.isLength(data.phone, { min: 10, max: 20 })) {
-    errors.password = 'Phone number must be at least 10 digits';
-  }
+  // if (!Validator.isLength(data.phone, { min: 10, max: 20 })) {
+  //   errors.phone = 'Phone number must be at least 10 digits';
+  // }
 
-  if (Validator.isEmpty(data.admin)) {
-    errors.admin = 'Admin field is required';
-  }
+  // if (Validator.isEmpty(data.admin)) {
+  //   errors.admin = 'Admin field is required';
+  // }
 
 
   return {

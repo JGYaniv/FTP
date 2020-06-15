@@ -1,5 +1,6 @@
 import React from 'react';
 import SessionCSS from './session.css';
+import {withRouter} from 'react-router-dom';
 
 class Session extends React.Component {
   constructor(props) {
@@ -26,22 +27,23 @@ class Session extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state);
+    
   }
 
-
+  
   renderErrors() {
-    // return (
-    //   <p>{this.props.errors}</p>
-    // )
     return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
+      <p>{this.props.errors}</p>
+    )
+    // return (
+    //   <ul>
+    //     {this.props.errors.map((error, i) => (
+    //       <li key={`error-${i}`}>
+    //         {errors}
+    //       </li>
+    //     ))}
+    //   </ul>
+    // );
   }
 
 
@@ -100,4 +102,4 @@ class Session extends React.Component {
   }
 }
 
-export default Session;
+export default withRouter(Session);
