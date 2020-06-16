@@ -13,6 +13,14 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ nocontactsfound: 'No tweets found' }));
 });
 
+router.get('/count', (req, res) => {
+  Contact.find()
+    .sort({date: -1})
+    .count()
+    // .catch(err => res.status(404).json({ nocontactsfound: 'No tweets found' }));
+});
+
+
 router.get('/:id', (req,res) => {
   Contact.findById(req.params.id)
     .then(contact => res.json(contact))
