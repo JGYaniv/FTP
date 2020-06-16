@@ -32,7 +32,8 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "twilio": "^3.46.0",
-    "validator": "^13.1.1"
+    "validator": "^13.1.1",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
