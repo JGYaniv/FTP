@@ -1,0 +1,39 @@
+.createcontact-container {
+    width: 500px;
+    height: 300px;
+    padding: 30px;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom,#f15656,#6d6060);
+
+    position: relative;
+    animation-name: contact;
+    animation-duration: 0.5s;
+}
+
+@keyframes contact {
+    from {left: -85vw}
+    to {left: 0}
+}
+
+.createcontact-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createcontact-container > form > select {
+    background-color: #f74646;
+    width: 150px;
+}
+
+.createcontact-container > form > input {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.createcontact-container > form > button {
+    position: absolute;
+    width: 100px;
+    bottom: 5px;
+    right: 5px;
+}

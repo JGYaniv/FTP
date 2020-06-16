@@ -1,11 +1,10 @@
 .splash-container {
-    /* position: fixed; */
-    width: 100%;
-    height: 100%;
-    /* color: #506073; */
+    height: 87.5vh;
+    background-image: linear-gradient(to bottom,#f15656,#f72c2c);
+    color: white;
 }
 
-.login-button {
+.btn-divider {
     margin-right: 50px;
 }
 
@@ -60,11 +59,32 @@ footer {
     border-top: 1px solid #303339;
     width: 80%;
     margin: 0 auto;
-    margin-top: 60px;
-        text-align: center;
+    margin-top: 40px;
+    text-align: center;
 }
 
 .protest {
-    width: 100%;
+    width: 111%;
     margin-bottom: 20px;
+}
+
+.splash-main > h1 {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 320px;
+}
+
+.power {
+  font-size: 7rem;
+  position: relative;
+  animation-name: power;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes power {
+  0%   {font-size: 7rem;}
+  50%  {font-size: 9rem;}
+  100% {font-size: 7rem;}
 }
