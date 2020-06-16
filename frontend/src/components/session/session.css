@@ -2,12 +2,11 @@
 .login-container {
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 
 .login-form-container {
     width: 414px;
-    margin-right: 59px;
-    margin-top: 2px;
 }
 
 
@@ -51,7 +50,7 @@
 
 .session-submit {
     color: white;
-    background-color: #7489d6;
+    background-color: #f15656;
 
     font-size: 16px;
     text-transform: capitalize;
@@ -67,22 +66,16 @@
 }
 
 .session-submit:hover {
-    background-color: #677bc4;
+    background-color: #fd9090;
 }
 
 
 .login-form-container > h1 {
     text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 30px;
-    margin-bottom: 8px;
 }
 
 .login-form-container > h2 {
     text-align: center;
     font-size: 16px;
-    line-height: 20px;
     font-weight: 300;
 }
-

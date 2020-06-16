@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import Splash from './splash';
 
-const mapStateToProps = (state) => {
-  return {
-    session: state.session
-  };
-};
+const mapStateToProps = state => ({
+  session: state.session
+});
 
 const mapDispatchToProps = dispatch => ({
   login: (user) => dispatch(login(user))

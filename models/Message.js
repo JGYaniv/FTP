@@ -11,6 +11,10 @@ const MessageSchema = new Schema({
     type: String,
     required: true
   },
+  contactType: {
+    type: String,
+    default: "General"
+  },
   date: {
     type: Date,
     default: Date.now

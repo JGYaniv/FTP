@@ -64,10 +64,11 @@ class Session extends React.Component {
 
     return (
       <div className="login-container">
+    
       
           <div className="login-form-container">
             
-            <h1><a href="/">FTP</a></h1>
+            <h1>Fight The Power</h1>
             <h2>{this.props.formType}</h2>
             
             <form onSubmit={this.handleSubmit} className="login-form">
