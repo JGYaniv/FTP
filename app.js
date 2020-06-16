@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-app.get("/", (req, res) => res.send("Hello!"));
+// app.get("/", (req, res) => res.send("Hello!"));
 
 app.use("/api/users", users);
 app.use("/api/messages", messages);
