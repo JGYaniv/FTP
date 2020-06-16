@@ -1,5 +1,31 @@
 .messagelog-container {
-    width: 1150px;
-    height: 500px;
-    background-color: chartreuse;
+    width: 1550px;
+    height: 100%;
+    background-color: maroon;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.message-list-header {
+    color: white;
+}
+
+.message-list {
+    padding: 0;
+}
+
+.message-list-item {
+    display: flex;
+}
+
+.message-time {
+    max-width: 170px;
+    margin: 0;
+    color: lightgray;
+}
+
+.message-text {
+    margin: 0;
+    max-width: 100%;
+    color: white;
 }

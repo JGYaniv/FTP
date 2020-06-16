@@ -19,9 +19,22 @@ class NavBar extends React.Component {
     getLinks() {
         if (this.props.loggedIn) {
             return (
-                <div>
-                    <button onClick={this.logoutUser}>Logout</button>
-                </div>
+                <nav className="splash-nav">
+                    <div><img src={PDPSI} alt='flag' className="flag" /></div>
+                    <ul>
+                        <li>
+                            <a href="https://www.linkedin.com/in/williamjsuh/"><i className="fab fa-linkedin"></i></a>
+                        </li>
+
+                        <li>
+                            <a href="https://github.com/JGYaniv/FTP"><i className="fab fa-github"></i></a>
+                        </li>
+
+                        <li>
+                            <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
+                        </li>
+                    </ul>
+                </nav>
             );
         } else {
             return (

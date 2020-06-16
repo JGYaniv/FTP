@@ -2,11 +2,27 @@
 .login-container {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    height: 87.5vh;
+    background-image: linear-gradient(to bottom,#f15656,#f72c2c);
 }
 
 .login-form-container {
-    width: 414px;
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    color: #f15656;
+
+    top: 20%;
+    animation-name: login;
+    animation-duration: 0.5s;
+}
+
+@keyframes login {
+    from {top: -20%}
+    to {top: 20%}
 }
 
 
@@ -22,7 +38,7 @@
     border: 1px solid rgba(0, 0, 0, 0.3);
 
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.1);
+    /* background-color: rgba(0, 0, 0, 0.1); */
 
     padding-left: 10px;
     font-size: 16px;
@@ -63,11 +79,13 @@
 
     transition: 0.3s;
     cursor: pointer;
+    outline: none;
 }
 
 .session-submit:hover {
     background-color: #fd9090;
 }
+
 
 
 .login-form-container > h1 {
@@ -78,4 +96,8 @@
     text-align: center;
     font-size: 16px;
     font-weight: 300;
+}
+
+.login-form-container > a {
+ color: inherit;
 }

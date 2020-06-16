@@ -1,6 +1,8 @@
 .contacts-container {
     width: 500px;
     height: 300px;
-    background-color: red;
-    margin-right: 150px;
+    position: relative;
+    left: 2.5%;
+    padding: 15px;
+    border: 2px solid black;
 }
