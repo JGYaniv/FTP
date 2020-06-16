@@ -14,10 +14,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/count', (req, res) => {
-  Contact.find()
-    .sort({date: -1})
-    .count()
-    // .catch(err => res.status(404).json({ nocontactsfound: 'No tweets found' }));
+  Contact.countDocuments()
+    .then(count => res.json({count}))
 });
 
 
@@ -43,6 +41,41 @@ router.post('/',
     });
 
     newContact.save().then(contact => {console.log(res.json(contact))});
+  }
+);
+
+router.post('/bulk',
+
+  passport.authenticate('jwt', {session: false} ),
+  (req, res) => {
+
+    const allContacts = JSON.parse(req.body.contacts); 
+    const contactsCreated = [];
+    const contactFailures = [];
+    debugger
+    allContacts.forEach( (contact,idx) =>
+      
+      {const {errors, isValid } = validateContactInput(contact);
+    
+      if (!isValid) {
+        errors.idx = idx;
+        contactFailures.push(errors);
+        return res.status(400).json(errors);
+  
+      }  
+
+      {const newContact = new Contact({
+        phone: contact.phone, 
+        contact_type: contact.contact_type
+      })  
+
+      newContact.save()
+        .then(contact => { 
+          contactsCreated.push(contact)})
+      }
+
+    })
+    console.log(contactFailures);
   }
 );
 
