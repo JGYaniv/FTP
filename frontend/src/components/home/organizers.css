@@ -1,16 +1,14 @@
 .organizers-container {
-    background-color: aqua;
-    width: 1150px;
-    margin: 0 auto;
-}
-.organizers-table {
     display: flex;
-    flex-direction: row;
-    height: 300px;
-    /* width: 600px; */
-    border-bottom: 2px solid black;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 95%;
+    /* height: 300px; */
+    padding: 15px;
+    border: 2px solid black;
 }
 
-.organizers-table > div {
-    margin-right: 100px;
+.organizers-table tr th, .organizers-table tr td{
+    width: 250px;
 }

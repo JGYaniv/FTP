@@ -6,6 +6,9 @@ import Messages from './messages';
 import MessageLog from './messagelog';
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
 
@@ -14,7 +17,7 @@ class Home extends React.Component {
         <Organizers/>
 
       <div className="contact-message-container">
-          <Contacts/>
+          <Contacts openModal={this.props.openModal}/>
 
           <Messages/>
       </div>

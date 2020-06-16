@@ -5,10 +5,12 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavBarContainer from './nav/navbar_container';
-import Home from './home/home'
+import Home from './home/home_container'
+import Modal from './modal/modal';
 
 export default () => (
   <div>
+    <Modal/>
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
