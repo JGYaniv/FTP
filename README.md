@@ -2,6 +2,8 @@
 FTP is a lightweight CRM tool for protest organizers to communicate with fellow activists through SMS messages.  
 Admins have the ability to log-in via Desktop to add organizers who have access to the Mobile app. These organizer users can specify contacts as specific roles or groups in order to send more relevant messages. For example, users could send out important, “medical assistance requested” text only for contacts that have been designated as medics or a simple reminder message of an upcoming march to all members.  
 
+#
+
 ## Functionality and MVP  
 * Auth  
   * Users can sign up only via Desktop
@@ -17,6 +19,18 @@ Admins have the ability to log-in via Desktop to add organizers who have access 
 
 * BONUS: mobile app
 
+#
+
+### Desktop Admin Portal
+<img src="https://i.imgur.com/FNcO4pb.png"/>
+
+#
+
+### Mobile App for Organizers
+<img src="https://i.imgur.com/xskNrBl.png"/>
+
+#
+
 ## Technologies & Technical Challenges  
 FTP’s core challenge is storing our contacts in a secure manner. Our architecture relies on a cipher stored in the production environment to encrypt and decrypt contact phone numbers. No other metadata is compiled for contacts, inherently mitigating the risks of a data breach.  
 ### Encrypted Contacts  
@@ -27,6 +41,8 @@ Admins can upload a CSV of phone numbers to add to the DB. This will be parsed a
 We plan to implement the Twilio SMS gateway API for starters. It’s easy to use and also has a number of powerful features for organizations that wish to customize FTP. Contact phone numbers will be decrypted and dispatched through Twilio, but the unencrypted phone numbers will not persist within our database.
 ### React & React Native  
 Admins login to our application through the desktop app built in react, while users login using a mobile app built in React Native. There is not much overlap between the two so we will have to build out two more or less independent front ends.
+
+#
 
 ## Group Members & Work Breakdown
 * Team Lead - Jonathan Yaniv
