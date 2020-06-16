@@ -7,6 +7,7 @@ const passport = require('passport');
 const User = require('./models/User');
 const users = require('./routes/api/users');
 const messages = require('./routes/api/messages');
+const contacts = require('./routes/api/contacts');
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -23,8 +24,8 @@ app.get("/", (req, res) => res.send("Hello!"));
 app.use("/api/users", users);
 app.use("/api/messages", messages);
 
-app.use("/api/users", users);
-app.use("/api/messages", messages);
+app.use("/api/contacts", contacts);
+
 
 const port = process.env.PORT || 5000;
 

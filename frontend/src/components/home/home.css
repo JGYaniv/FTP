@@ -1,0 +1,4 @@
+.contact-message-container {
+    display: flex;
+    flex-direction: row;
+}
