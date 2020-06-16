@@ -6,9 +6,7 @@ import Messages from './messages';
 import MessageLog from './messagelog';
 
 class Home extends React.Component {
-
   render() {
-
     return (
       <div className="home-container">
         <Organizers/>
@@ -16,10 +14,12 @@ class Home extends React.Component {
       <div className="contact-message-container">
           <Contacts/>
 
-          <Messages/>
+          <Messages createMessage={this.props.createMessage}
+            currentUserId={this.props.currentUserId} />
       </div>
 
-        <MessageLog/>
+        <MessageLog messages={this.props.messages}
+          fetchMessages={this.props.fetchMessages} />
       </div>
     )
   }
