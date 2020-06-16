@@ -1,0 +1,16 @@
+.organizers-container {
+    background-color: aqua;
+    width: 1150px;
+    margin: 0 auto;
+}
+.organizers-table {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    /* width: 600px; */
+    border-bottom: 2px solid black;
+}
+
+.organizers-table > div {
+    margin-right: 100px;
+}

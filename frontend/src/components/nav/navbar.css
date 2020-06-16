@@ -1,0 +1,43 @@
+.splash-nav {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f15656;
+}
+
+.splash-nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.splash-nav li {
+    margin: 0 8px;
+    display: flex;
+    flex-direction: row;
+}
+
+.splash-nav li:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.splash-nav a, .splash-nav a:visited, .splash-nav a:hover, .splash-nav a:active {
+    font-size: 30px;
+    color: inherit;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+
+.flag {
+    position: absolute;
+    width: 70px;
+    left: 50px;
+    top: 15px;
+}
+
+  
