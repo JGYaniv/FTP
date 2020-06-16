@@ -6,6 +6,8 @@ const passport = require('passport');
 const Message = require('../../models/Message');
 const validateMessageInput = require('../../validation/messages');
 
+const sendMessage = require('../../modules/sms_gateway');
+
 router.get("/test", (req, res) => res.json({ msg: "This is the messages route" }));
 
 router.get("/", (req, res) => {
@@ -16,7 +18,7 @@ router.get("/", (req, res) => {
 });
 
 router.post('/',
-  passport.authenticate('jwt', { session: false }),
+  // passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateMessageInput(req.body);
 
@@ -27,7 +29,12 @@ router.post('/',
     const newMessage = new Message({
       authorId: req.body.authorId, 
       text: req.body.text,
+      contactType: req.body.contactType
     });
+
+    sendMessage(req.body.text, "+16463699986")
+      .then(msg => console.log("Success"))
+      .catch(err => console.log("Error"));
 
     newMessage.save().then(message => res.json(message));
   }
