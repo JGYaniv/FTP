@@ -7,6 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavBarContainer from './nav/navbar_container';
 import Home from './home/home_container'
 import Modal from './modal/modal';
+import HomeContainer from './home/home_container'
 
 export default () => (
   <div>
@@ -17,7 +18,7 @@ export default () => (
       <AuthRoute exact path="/login" component={Login} />
       <AuthRoute exact path="/signup" component={Signup} />
 
-      <ProtectedRoute exact path="/home" component={Home} />
+      <ProtectedRoute exact path="/home" component={HomeContainer} />
     </Switch>
   </div>
 )

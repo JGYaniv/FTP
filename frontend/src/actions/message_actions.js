@@ -27,11 +27,13 @@ const receiveMessageErrors = errors => {
 
 export const fetchMessages = () => dispatch => {
   return MessageAPIUtil.fetchMessages()
-    .then(messages => dispatch(receiveAllMessages(messages)));
+    .then(messages => dispatch(receiveAllMessages(messages)),
+    err => console.log(err));
 };
 
 export const createMessage = messageData => dispatch => {
   return MessageAPIUtil.createMessage(messageData)
     .then(message => dispatch(receiveMessage(message)),
-      err => dispatch(receiveMessageErrors(err.response.data)));
+      err => console.log(err));
+      // err => dispatch(receiveMessageErrors(err.response.data)));
 };
