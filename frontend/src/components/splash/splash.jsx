@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import SplashCSS from './splash.css';
 import Protest from '../../images/protest.png'
 
@@ -16,25 +17,11 @@ class Splash extends React.Component {
   render() {
     return (
       <div className="splash-container">
-          <nav className="splash-nav">
-            <ul>
-              <li>
-                navbar stuff
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/williamjsuh/">linkedin</a>
-              </li>
-              
-              <li>
-              <a href="https://github.com/oreodub">github</a>
-              </li>
-            </ul>
-          </nav>
-
 
         <div className="splash-main">
-          <h1>FTP</h1>
-        <img  src={Protest} alt='protest' className="protest" />
+
+          <h1>Fight The Power</h1>
+          <img src={Protest} alt='protest' className="protest" />
           <h2>Organize your DUDES</h2>
 
           <div className="splash-btns">
@@ -52,7 +39,7 @@ class Splash extends React.Component {
         
 
         <footer>
-          footer stuff
+          FTP is a lightweight CRM tool for protest organizers to communicate with fellow activists through SMS messages.
         </footer>
 
       </div>
@@ -64,4 +51,4 @@ class Splash extends React.Component {
 
 
 
-export default Splash;
+export default withRouter(Splash);
