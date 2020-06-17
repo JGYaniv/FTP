@@ -16,7 +16,7 @@ const parser = (csvString) => {
         let rowItems = row.trim().split(",")
         return {
             "phone": rowItems[phoneIdx].trim(),
-            "contact_type": contactTypeIdx > -1 ? rowItems[contactTypeIdx].trim() : "general"
+            "contactType": contactTypeIdx > -1 ? rowItems[contactTypeIdx].trim() : "general"
         }
     })
 

@@ -10,7 +10,8 @@ const mapStateToProps = (state) => ({
   messages: state.entities.messages,
   currentUserId: state.session.currentUser.id,
   users: state.entities.users,
-  contactTypes: state.entities.contactTypes
+  contactTypes: state.entities.contactTypes,
+  contacts: state.entities.contacts
 });
 
 const mapDispatchToProps = (dispatch) => ({

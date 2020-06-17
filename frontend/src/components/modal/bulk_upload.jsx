@@ -35,15 +35,15 @@ class BulkUpload extends React.Component {
 
   handleAdd(e) {
     e.preventDefault();
-    const newContact = { phone: this.state.phone, contact_type: this.state.contactType };
+    const newContact = { phone: this.state.phone, contactType: this.state.contactType };
     newContact.phone = newContact.phone.split('-').join('')
 
-    if (!newContact.contact_type) {
-      newContact.contact_type = "general"
+    if (!newContact.contactType) {
+      newContact.contactType = "general"
     }
 
     if (newContact.phone.length < 10) {
-      this.setState({ phone: newContact.phone, contactType: newContact.contact_type });
+      this.setState({ phone: newContact.phone, contactType: newContact.contactType });
     } else {
       this.bulkContacts.push(newContact);
       this.setState({ phone: "", contactType: "", stage: 2 });
@@ -83,7 +83,7 @@ class BulkUpload extends React.Component {
       this.bulkContacts.map((contact, i) => (
         <div key={i}>
           {contact.phone}
-          {contact.contact_type}
+          {contact.contactType}
           <button>Edit</button>
           <button onClick={this.handleDelete(i)}>Delete</button>
         </div>
@@ -104,7 +104,7 @@ class BulkUpload extends React.Component {
         <input type="file"
           accept=".csv"
           onChange={this.handleCSVFile} />
-        <p>* Must have column header of "phone_number". Optionally can have a header "contact_type", otherwise will be classified as "general" contact type.</p>
+        <p>* Must have column header of "phone_number". Optionally can have a header "contactType", otherwise will be classified as "general" contact type.</p>
       </div>
     } else if (this.state.stage === 2) {
       component = 

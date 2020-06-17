@@ -1,12 +1,12 @@
 import React from 'react';
 import ContactsCSS from './contacts.css'
 
-const Contacts = ({openModal}) => {
+const Contacts = ({openModal, contacts}) => {
     return (
         <div className="contacts-container">
             <div className="totalcontacts">
                 <h2>TOTAL CONTACTS</h2>
-                <h1>54321</h1>
+                <h1>{contacts}</h1>
             </div>
 
             <div className="contact-btns">

@@ -33,11 +33,11 @@
 .message-text {
     margin: 0;
     max-width: 100%;
-    color: white;
+    color: black;
 }
 
 .message-stats {
     max-width: 170px;
     margin: 0;
-    color: lightgray;
+    color: black;
 }
