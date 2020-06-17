@@ -10,15 +10,17 @@ const sendMessage = require('../../modules/sms_gateway');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the messages route" }));
 
-router.get("/", (req, res) => {
-  Message.find()
-    .sort({ date: -1 })
-    .then(messages => res.json(messages))
-    .catch(err => res.status(404).json({ noMessagesFound: "No messages found." }));
-});
+router.get("/", 
+  passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+      Message.find()
+        .sort({ date: -1 })
+        .then(messages => res.json(messages))
+        .catch(err => res.status(404).json({ noMessagesFound: "No messages found." }));
+  });
 
 router.post('/',
-  // passport.authenticate('jwt', { session: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateMessageInput(req.body);
 
