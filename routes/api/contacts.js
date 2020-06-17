@@ -6,6 +6,9 @@ const jwt = require('jsonwebtoken');
 const secretOrKey = process.env.secretOrKey ? process.env.secretOrKey : require("../../config/keys").secretOrKey;
 const Contact = require('../../models/Contact');
 const validateContactInput = require('../../validation/contacts');
+const encryptor = require('../../modules/encryptor');
+const { json } = require("body-parser");
+const hiddenKey = require('../../config/keys').hiddenKey;
 
 router.get('/', 
   passport.authenticate('jwt', { session: false }),
@@ -13,7 +16,7 @@ router.get('/',
       Contact.find()
         .sort({date: -1})
         .then(contacts => res.json(contacts))
-        .catch(err => res.status(404).json({ nocontactsfound: 'No tweets found' }));
+        .catch(err => res.status(404).json({ nocontactsfound: 'No contacts found' }));
 });
 
 router.get('/count', 
@@ -41,47 +44,50 @@ router.post('/',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-
-    const newContact = new Contact({
-      phone: req.body.phone,
+    
+    const contactParams = {
+      phone: encryptor(hiddenKey).encrypt(req.body.phone), 
       contactType: req.body.contactType,
-    });
-
-    newContact.save().then(contact => {console.log(res.json(contact))});
+    };
+    
+    Contact.create(contactParams)
+      .then(contact => res.json(contact))
+  
   }
 );
 
+// const createContact = new Promise(
+//   contactParams => Contact.create(contactParams) 
+// )
+
 router.post('/bulk',
 
-  passport.authenticate('jwt', {session: false} ),
+  // passport.authenticate('jwt', {session: false} ),
   (req, res) => {
 
     const allContacts = JSON.parse(req.body.contacts); 
-    const contactsCreated = [];
-    const contactFailures = [];
-    allContacts.forEach( (contact,idx) =>
+    let countFailures = 0;
+    Promise.all(allContacts.map( (contact) =>
       
       {const {errors, isValid } = validateContactInput(contact);
     
       if (!isValid) {
-        errors.idx = idx;
-        contactFailures.push(errors);
-        return res.status(400).json(errors);
-  
+        countFailures++;
+        return Promise.resolve(true);
       }  
 
-      {const newContact = new Contact({
-        phone: contact.phone, 
-        contactType: contact.contactType
-      })  
+      const contactParams = {
+        phone: encryptor(hiddenKey).encrypt(contact.phone), 
+        contactType: contact.contactType,
+      };
+      
+      Contact.create(contactParams)
+        .catch(err => countFailures++);
 
-      newContact.save()
-        .then(contact => { 
-          contactsCreated.push(contact)})
-      }
-
-    })
-    console.log(contactFailures);
+    }))
+    .then(() => res.json({countCreated: allContacts.length-countFailures, countFailures}))
+    
+    // console.log(contactFailures);
   }
 );
 

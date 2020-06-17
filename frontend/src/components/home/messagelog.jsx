@@ -7,10 +7,6 @@ class MessageLog extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        this.props.fetchMessages();
-    }
-
     render() {
         const messageList = this.props.messages.map((message, i) => (
             <li key={i} className="message-list-item">

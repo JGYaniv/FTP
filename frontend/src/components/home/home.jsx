@@ -23,6 +23,7 @@ class Home extends React.Component {
 
           <Messages createMessage={this.props.createMessage}
             contactTypes={this.props.contactTypes}
+            fetchContactTypes={this.props.fetchContactTypes}
             currentUserId={this.props.currentUserId} />
       </div>
 

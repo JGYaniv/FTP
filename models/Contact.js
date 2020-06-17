@@ -9,7 +9,9 @@ const ContactSchema = new Schema({
 
   contactType: {
     type: String, 
-    default: "general"
+    default: "general",
+    index: true,
+    // unique: true
   }
 
 });
