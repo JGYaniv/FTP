@@ -19,7 +19,6 @@ class Splash extends React.Component {
   }
 
   render() {
-  const show = (this.state.description) ? "show" : "";
 
     return (
       <div className="splash-container">
@@ -46,8 +45,6 @@ class Splash extends React.Component {
 
         <footer>
           FTP is a lightweight CRM tool for protest organizers to communicate with fellow activists through SMS messages.
-          {/* <button className="navbar-toggler" type="button" onClick={this.toggleDescription}>Description</button>
-          <div className={"collapse in " + show}>FTP is a lightweight CRM tool for protest organizers to communicate with fellow activists through SMS messages.</div> */}
         </footer>
 
       </div>

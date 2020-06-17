@@ -7,7 +7,7 @@ const ContactSchema = new Schema({
     required: true
   },
 
-  contact_type: {
+  contactType: {
     type: String, 
     default: "general"
   }

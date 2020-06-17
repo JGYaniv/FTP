@@ -18,11 +18,13 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
   });
 })
 
-router.get('/', (req, res) => {
-  User.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(404).json({ noUsersFound: 'No users found'})
-  )
+router.get('/', 
+  passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+      User.find()
+        .then(users => res.json(users))
+        .catch(err => res.status(404).json({ noUsersFound: 'No users found'})
+      )
 });
 
 router.post('/signup', (req, res) => {
@@ -102,5 +104,28 @@ router.post('/login', (req, res) => {
         });
     });
 });
+
+router.post('/', 
+  passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+      User.findOne({ email: req.body.email })
+        .then(user => {
+          if (user) {
+            errors.email = 'Email already exists';
+            return res.status(400).json(errors);
+          } else {
+            const newUser = new User({
+              email: req.body.email,
+              password: req.body.password,
+              phone: req.body.phone,
+              admin: req.body.admin
+            });
+            newUser.save()
+              .then(user => res.json(user))
+              .catch(err => console.log(err));
+          }
+        });
+});
+
 
 module.exports = router;

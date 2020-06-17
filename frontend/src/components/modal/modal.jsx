@@ -2,21 +2,22 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import ModalCSS from './modal.css'
-// import AddUser from '../../components/modal/add_user'
+import AddUser from './add_user'
 // import ManageContacts from '../../components/modal/manage_contacts'
 import CreateContact from './create_contact'
 // import BulkUploadContacts from '../../components/modal/bulk_upload_contacts'
 import ManageContactTypesContainer from '../home/manage_contact_types_container';
+import { createUser } from '../../actions/user_actions';
 
-function Modal({modal, closeModal}) {
+function Modal({modal, closeModal, createUser}) {
   if (!modal) {
     return null;
   }
   let component;
   switch (modal) {
-    // case 'addUser':
-    //   component = <AddUser />
-    //   break;
+    case 'addUser':
+      component = <AddUser createUser={createUser}/>
+      break;
     // case 'manageContacts':
     //   component = <ManageContacts />;
     //   break;
@@ -50,7 +51,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    createUser: (user) => dispatch(createUser(user))
   };
 };
 

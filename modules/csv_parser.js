@@ -16,7 +16,7 @@ const parser = (csvString) => {
     const contacts = rows.map(row => {
         let rowItems = row.split(",")
         return {
-            "phone_number": rowItems[phoneIdx],
+            "phone": rowItems[phoneIdx],
             "contact_type": contactTypeIdx > -1 ? rowItems[contactTypeIdx] : "general"
         }
     })
@@ -24,13 +24,14 @@ const parser = (csvString) => {
     return contacts.slice(1)
 }
 
+module.exports = parser;
 
-const testString = "" +
-    "first_name,stuff1,stuff2,email,phone_number,status\n" + 
-    "jon, 1, a, hi@me.com, 5556667788, TRUE\n" + 
-    "will, 2, b, bye@me.com, 2223334455, FALSE\n" + 
-    "adrian, 3, c, money@me.com, 1112224488, TRUE\n" + 
-    "alex, 4, d, adios@me.com, 1113336699, FALSE"
+// const testString = "" +
+//     "first_name,stuff1,stuff2,email,phone_number,status\n" + 
+//     "jon, 1, a, hi@me.com, 5556667788, TRUE\n" + 
+//     "will, 2, b, bye@me.com, 2223334455, FALSE\n" + 
+//     "adrian, 3, c, money@me.com, 1112224488, TRUE\n" + 
+//     "alex, 4, d, adios@me.com, 1113336699, FALSE"
 
-const parseTest = parser(testString)
-console.log(parseTest)
+// const parseTest = parser(testString)
+// console.log(parseTest)

@@ -10,7 +10,7 @@ module.exports = function validateContactInput(data){
     errors.phone = "Phone number is required";
   }
 
-  if (Validator.isEmpty(data.contact_type)){
+  if (Validator.isEmpty(data.contactType)){
     errors.contact_type = "Contact type is required";
   }
   
