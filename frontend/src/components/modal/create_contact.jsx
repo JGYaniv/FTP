@@ -41,12 +41,15 @@ class CreateContact extends React.Component {
 			<div className="createcontact-container">
 				<form onSubmit={this.handleSubmit}>
 					<h1>Add a Contact</h1>
+
+					<label>Phone Number</label>
 					<input type="tel"
 						name="phone"
 						placeholder="Enter Phone Number (e.g. 123-456-7890)"
 						value={this.state.phone}
 						onChange={this.update("phone")}/>
 
+					<label>Contact Type</label>
 					<select className="selectpicker" 
 						defaultValue=""
 						onChange={this.update("contactType")}>

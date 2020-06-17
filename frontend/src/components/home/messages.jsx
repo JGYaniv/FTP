@@ -32,7 +32,9 @@ class Messages extends React.Component {
     
                 <form onSubmit={this.handleSubmit}>
                     <textarea onChange={this.update("text")} 
-                        placeholder="Message content..."
+                        placeholder="Message content... (Max 140 char)"
+                        maxLength="140"
+                        className="form-control"
                         value={this.state.text}></textarea>
     
                     <select>
@@ -41,7 +43,7 @@ class Messages extends React.Component {
                         <option value="medic">Medic</option>
                     </select>
     
-                    <button>Send</button>
+                    <button className="basic-btn message-btn">SEND</button>
                 </form>
             </div>
         )

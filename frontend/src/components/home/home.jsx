@@ -28,6 +28,10 @@ class Home extends React.Component {
 
         <MessageLog messages={this.props.messages}
           fetchMessages={this.props.fetchMessages} />
+
+          <footer>
+            copyright boomerlee, yahnev, AK47, dobberman
+          </footer>
       </div>
     )
   }

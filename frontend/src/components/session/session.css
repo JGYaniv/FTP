@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     height: 87.5vh;
-    background-image: linear-gradient(to bottom,#f15656,#f72c2c);
+    background-image: linear-gradient(to bottom,#ef7070,#f72c2c);
 }
 
 .login-form-container {
@@ -72,7 +72,8 @@
     text-transform: capitalize;
 
     padding: 13px;
-    border: 1px solid #36393F;
+    /* border: 1px solid #36393F; */
+    border: none;
     border-radius: 3px;
     margin-bottom: 6px;
     margin-top: 17px;

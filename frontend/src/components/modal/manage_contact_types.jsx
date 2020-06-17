@@ -44,12 +44,8 @@ class ManageContactTypes extends React.Component {
             # of contacts
           </p>
           <div className="contact-type-item-buttons">
-            <button onClick={() => this.setState({ clicked: "edit", name: contact.name, contactTypeId: contact._id })}>
-              Edit
-            </button>
-            <button onClick={() => this.props.deleteContactType(contact._id)} >
-              Delete
-            </button>
+            <i onClick={() => this.setState({ clicked: "edit", name: contact.name, contactTypeId: contact._id })} className="fas fa-edit"></i>
+            <i onClick={() => this.props.deleteContactType(contact._id)} className="fas fa-trash-alt"></i>
           </div>
         </div>
       )
@@ -61,37 +57,52 @@ class ManageContactTypes extends React.Component {
           <div className="manage-contact-types-header">
             <h3>Contact Type</h3>
             <h3># of Contacts</h3>
-            <h3>Edit/Delete</h3>
+            <button className="basic-btn add-contact-btn" onClick={this.handleAddClick}>Add Contact</button>
           </div>
           {contactItem}
-          <button onClick={this.handleAddClick}>+</button>
+          
         </div>
       );
     } else if (this.state.clicked === "add") {
       return (
-        <div className="manage-contact-types">
+        <div className="manage-contact-types-edit">
           <h1>Add Contact Type</h1>
           <input type="text"
             placeholder="Enter Contact Type"
             onChange={this.update} />
-          <button onClick={() => {
-            this.props.createContactType(contactTypeData);
-            this.setState({ clicked: "", name: ""  });
-            }}>Submit</button>
+
+          <div>
+            <button className="basic-btn" onClick={() => {
+              this.props.createContactType(contactTypeData);
+              this.setState({ clicked: "", name: ""  });
+              }}>ADD</button>
+            <button className="basic-btn" onClick={() => {
+              this.setState({ clicked: "", name: "" });
+            }}>BACK</button>
+          </div>
+
         </div>
       );
     } else if (this.state.clicked === "edit") {
       return (
-      <div className="manage-contact-types">
+      <div className="manage-contact-types-edit">
         <h1>Edit Contact Type</h1>
         <input type="text"
           placeholder="Enter Contact Type"
           onChange={this.update}
           value={this.state.name} />
-        <button onClick={() => {
-            this.props.updateContactType(contactTypeData, this.state.contactTypeId);
-            this.setState({ clicked: "", name: ""  });
-            }}>Submit</button>
+
+          <div>
+            <button className="basic-btn" onClick={() => {
+              this.props.updateContactType(contactTypeData, this.state.contactTypeId);
+              this.setState({ clicked: "", name: ""  });
+              }}>EDIT</button>
+
+            <button className="basic-btn" onClick={() => {
+              this.setState({ clicked: "", name: "" });
+            }}>BACK</button>
+        </div>
+
       </div>
     )
     } else {

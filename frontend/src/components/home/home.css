@@ -1,6 +1,6 @@
 .home-container {
-    height: 87.5vh;
-    background-image: linear-gradient(to bottom,#f15656,#f72c2c);
+    height: 150vh;
+    background-image: linear-gradient(to bottom,#ef7070,#f72c2c);
 }
 
 .contact-message-container {
@@ -19,7 +19,8 @@
     text-transform: capitalize;
     width: 100px;
     padding: 5px;
-    border: 1px solid #36393F;
+    /* border: 1px solid #36393F; */
+    border: none;
     border-radius: 5px;
 
     transition: 0.3s;
@@ -33,4 +34,8 @@
 
 .basic-btn:focus {
     outline: none;
+}
+
+.home-container footer {
+    color: white;
 }
