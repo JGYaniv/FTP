@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-
+const Contact = require('../../models/Contact');
 const Message = require('../../models/Message');
 const validateMessageInput = require('../../validation/messages');
 
@@ -44,5 +44,11 @@ router.post('/',
     newMessage.save().then(message => res.json(message));
   }
 );
+
+router.get('/sample', (req,res) => {
+  Contact.find({contactType: "test"})
+    .then(contacts => res.json(contacts))
+    // .then(array => console.log(array))
+})
 
 module.exports = router;

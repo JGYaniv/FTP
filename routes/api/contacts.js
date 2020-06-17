@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-
+const jwt = require('jsonwebtoken');
+const secretOrKey = process.env.secretOrKey ? process.env.secretOrKey : require("../../config/keys").secretOrKey;
 const Contact = require('../../models/Contact');
 const validateContactInput = require('../../validation/contacts');
 
@@ -43,7 +44,7 @@ router.post('/',
 
     const newContact = new Contact({
       phone: req.body.phone,
-      contact_type: req.body.contact_type,
+      contactType: req.body.contactType,
     });
 
     newContact.save().then(contact => {console.log(res.json(contact))});
@@ -72,7 +73,7 @@ router.post('/bulk',
 
       {const newContact = new Contact({
         phone: contact.phone, 
-        contact_type: contact.contact_type
+        contactType: contact.contactType
       })  
 
       newContact.save()

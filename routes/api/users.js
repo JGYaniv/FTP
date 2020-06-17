@@ -105,4 +105,27 @@ router.post('/login', (req, res) => {
     });
 });
 
+router.post('/', 
+  passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+      User.findOne({ email: req.body.email })
+        .then(user => {
+          if (user) {
+            errors.email = 'Email already exists';
+            return res.status(400).json(errors);
+          } else {
+            const newUser = new User({
+              email: req.body.email,
+              password: req.body.password,
+              phone: req.body.phone,
+              admin: req.body.admin
+            });
+            newUser.save()
+              .then(user => res.json(user))
+              .catch(err => console.log(err));
+          }
+        });
+});
+
+
 module.exports = router;
