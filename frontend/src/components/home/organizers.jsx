@@ -1,34 +1,48 @@
 import React from 'react';
 import OrganizersCSS from './organizers.css'
 
-const Organizers = () => {
-    return (
-        <div className="organizers-container">
-            <table className="organizers-table">
-                <tr>
-                    <th>Username</th>
-                    <th>Admin Status</th>
-                    <th>Authenticated</th>
-                    <th>Edit/Delete</th>
-                </tr>              
-                <tr>
-                    <td>alexlee</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>icons</td>
-                </tr>
-                <tr>
-                    <td>therealalexlee</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                    <td>icons</td>
-                </tr>      
-            </table>
+class Organizers extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
-            <button className="basic-btn">ADD USER</button>
-        </div>
-    )
-    
+    componentDidMount() {
+        this.props.fetchUsers();
+    }
+
+    render() {
+        const userList = this.props.users.map((user, i) => (
+            <tr key={i}>
+                <td>{user.email}</td>
+                <td>{user.admin ? 'yes' : 'no'}</td>
+                <td>work in progress</td>
+                <td>
+                    <i onClick={()=> console.log('edit')} className="fas fa-edit"></i>
+                    <i onClick={()=> console.log('delete')} className="fas fa-trash-alt"></i>
+                </td>
+            </tr>
+        ));
+        return (
+            <div className="organizers-container">
+                <table className="organizers-table">
+                    <tbody>
+                    <tr>
+                        <th>Email</th>
+                        <th>Admin Status</th>
+                        <th>Authenticated</th>
+                        <th><button className="basic-btn add-btn" onClick={() => this.props.openModal('addUser')}>ADD USER</button></th>
+                    </tr>              
+
+                    {userList}
+                    </tbody>
+                </table>
+
+                
+            </div>
+        )
+    }
 }
 
 export default Organizers;
+
+        

@@ -1,0 +1,52 @@
+.adduser-container {
+    width: 500px;
+    height: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom,#f15656,#6d6060);
+
+    position: relative;
+    animation-name: adduser;
+    animation-duration: 0.5s;
+}
+
+@keyframes adduser {
+    from {top: -85vw}
+    to {top: 0}
+}
+
+.adduser-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adduser-container h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.adduser-container > form > input {
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.adduser-container > form > button {
+    position: absolute;
+    width: 100px;
+    bottom: 5px;
+    right: 5px;
+}
+
+.radio-btns {
+    display: flex;
+    flex-direction: row;
+}
+
+.radio label {
+    margin: 0 20px;
+}

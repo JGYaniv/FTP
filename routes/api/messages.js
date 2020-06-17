@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-
+const Contact = require('../../models/Contact');
 const Message = require('../../models/Message');
 const validateMessageInput = require('../../validation/messages');
 
@@ -10,15 +10,17 @@ const sendMessage = require('../../modules/sms_gateway');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the messages route" }));
 
-router.get("/", (req, res) => {
-  Message.find()
-    .sort({ date: -1 })
-    .then(messages => res.json(messages))
-    .catch(err => res.status(404).json({ noMessagesFound: "No messages found." }));
-});
+router.get("/", 
+  passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+      Message.find()
+        .sort({ date: -1 })
+        .then(messages => res.json(messages))
+        .catch(err => res.status(404).json({ noMessagesFound: "No messages found." }));
+  });
 
 router.post('/',
-  // passport.authenticate('jwt', { session: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateMessageInput(req.body);
 
@@ -42,5 +44,11 @@ router.post('/',
     newMessage.save().then(message => res.json(message));
   }
 );
+
+router.get('/sample', (req,res) => {
+  Contact.find({contactType: "test"})
+    .then(contacts => res.json(contacts))
+    // .then(array => console.log(array))
+})
 
 module.exports = router;

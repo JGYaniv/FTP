@@ -20,16 +20,17 @@
     flex-direction: row;
 }
 
-.splash-nav li:hover {
-    cursor: pointer;
-    color: white;
-}
 
-.splash-nav a, .splash-nav a:visited, .splash-nav a:hover, .splash-nav a:active {
+.splash-nav a, .splash-nav a:visited, .splash-nav a:active {
     font-size: 30px;
     color: inherit;
     text-decoration: none;
     transition: 0.2s;
+}
+
+.splash-nav a:hover {
+    cursor: pointer;
+    color: white;
 }
 
 

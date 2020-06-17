@@ -9,7 +9,10 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
-        <Organizers/>
+        <Organizers openModal={this.props.openModal}
+        fetchUsers={this.props.fetchUsers}
+        createUser={this.props.createUser}
+        users={this.props.users}/>
 
       <div className="contact-message-container">
           <Contacts openModal={this.props.openModal}/>
