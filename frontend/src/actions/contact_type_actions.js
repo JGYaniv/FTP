@@ -2,6 +2,7 @@ import * as ContactTypeAPIUtil from '../util/contact_type_api_util';
 
 export const RECEIVE_ALL_CONTACT_TYPES = "RECEIVE_ALL_CONTACT_TYPES";
 export const RECEIVE_CONTACT_TYPE = "RECEIVE_CONTACT_TYPE";
+export const EDIT_CONTACT_TYPE = "EDIT_CONTACT_TYPE";
 export const REMOVE_CONTACT_TYPE = "REMOVE_CONTACT_TYPE";
 export const RECEIVE_CONTACT_TYPE_ERRORS = "RECEIVE_CONTACT_TYPE_ERRORS";
 
@@ -16,6 +17,14 @@ const receiveContactType = contactType => {
   return {
     type: RECEIVE_CONTACT_TYPE,
     contactType
+  };
+};
+
+const editContactType = (contactType, typeId) => {
+  return {
+    type: EDIT_CONTACT_TYPE,
+    contactType,
+    typeId
   };
 };
 
@@ -46,7 +55,7 @@ export const createContactType = typeData => dispatch => {
 
 export const updateContactType = (typeData, typeId) => dispatch => {
   return ContactTypeAPIUtil.updateContactType(typeData, typeId)
-    .then(contactType => dispatch(receiveContactType(contactType)),
+    .then(contactType => dispatch(editContactType(contactType, typeId)),
       err => dispatch(receiveContactTypeErrors(err)));
 };
 

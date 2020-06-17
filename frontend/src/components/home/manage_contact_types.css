@@ -1,0 +1,17 @@
+.manage-contact-types {
+  background: white;
+  padding: 30px;
+}
+
+.manage-contact-types-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-type-item {
+  display: flex;
+}
+
+.contact-type-item-buttons {
+  display: flex;
+}

@@ -6,6 +6,7 @@ import ModalCSS from './modal.css'
 // import ManageContacts from '../../components/modal/manage_contacts'
 import CreateContact from './create_contact'
 // import BulkUploadContacts from '../../components/modal/bulk_upload_contacts'
+import ManageContactTypesContainer from '../home/manage_contact_types_container';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -25,6 +26,9 @@ function Modal({modal, closeModal}) {
     // case 'bulkUploadContacts':
     //   component = <bulkUploadContacts />;
     //   break;
+    case 'manageTypes':
+      component = <ManageContactTypesContainer />
+      break;
     default:
       return null;
   }

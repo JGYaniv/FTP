@@ -52,7 +52,6 @@ router.post('/bulk',
     const allContacts = JSON.parse(req.body.contacts); 
     const contactsCreated = [];
     const contactFailures = [];
-    debugger
     allContacts.forEach( (contact,idx) =>
       
       {const {errors, isValid } = validateContactInput(contact);
