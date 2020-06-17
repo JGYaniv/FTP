@@ -1,10 +1,11 @@
 .splash-nav {
+    height: 12.5vh;
     padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #f15656;
+    background-color: #ef7070;
 }
 
 .splash-nav ul {
@@ -50,7 +51,8 @@
     text-transform: capitalize;
 
     padding: 5px;
-    border: 1px solid #36393F;
+    /* border: 1px solid #36393F; */
+    border: none;
     border-radius: 5px;
 
     transition: 0.3s;

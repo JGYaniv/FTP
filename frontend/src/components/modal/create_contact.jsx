@@ -7,17 +7,20 @@ const CreateContact = () => {
         <div className="createcontact-container">
             <form>
                 <h1>Add a Contact</h1>
+
+                <label>Phone Number</label>
                 <input type="tel" name="phone" placeholder="123-456-7890"/>
 
             
-                <select class="selectpicker">
-                    <option>General</option>
-                    <option>Medic</option>
-                    <option>ALEXLEE</option>
+                <label>Contact Type</label>
+                <select>
+                    <option disabled defaultValue>Contact Type:</option>
+                    <option value="general">General</option>
+                    <option value="medic">Medic</option>
                 </select>
 
                 
-                <button className='btn btn-danger' type="submit">Add</button>
+                <button className='basic-btn' type="submit">ADD</button>
             </form>
         </div>
     )

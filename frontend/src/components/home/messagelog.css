@@ -1,17 +1,23 @@
 .messagelog-container {
-    width: 1550px;
-    height: 100%;
-    background-color: maroon;
     margin: 0 auto;
-    padding: 30px;
+    margin-top: 20px;
+    width: 95%;
+    background-color: #ffd9d9;
+    border-radius: 5px;
+    padding: 5px 10px 0px 10px;
 }
 
 .message-list-header {
-    color: white;
+    color: inherit;
 }
 
 .message-list {
     padding: 0;
+    overflow: scroll;
+    height: 400px;
+    padding: 15px;
+    /* border: 2px solid black; */
+    overflow: scroll;
 }
 
 .message-list-item {
@@ -21,11 +27,11 @@
 .message-time {
     max-width: 170px;
     margin: 0;
-    color: lightgray;
+    color: #6f6f6f;
 }
 
 .message-text {
     margin: 0;
     max-width: 100%;
-    color: white;
+    color: black;
 }

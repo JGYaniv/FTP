@@ -17,8 +17,8 @@ class Organizers extends React.Component {
                 <td>{user.admin ? 'yes' : 'no'}</td>
                 <td>work in progress</td>
                 <td>
-                    <i onClick={()=> console.log('edit')} className="fas fa-edit"></i>
-                    <i onClick={()=> console.log('delete')} className="fas fa-trash-alt"></i>
+                    <i onClick={()=> this.props.openModal('editUser', user._id)} className="fas fa-edit"></i>
+                    <i onClick={()=> this.props.openModal('deleteUser', user._id)} className="fas fa-trash-alt"></i>
                 </td>
             </tr>
         ));

@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
   createMessage: (messageData) => (dispatch(createMessage(messageData))),
   fetchUsers: () => (dispatch(fetchUsers())),
   createUser: (userData) => (dispatch(createUser(userData))),
-  openModal: (option) => (dispatch(openModal(option))),
+  openModal: (option, id) => (dispatch(openModal(option, id))),
   closeModal: () => (dispatch(closeModal()))
 });
 
