@@ -1,5 +1,5 @@
 const parser = (csvString) => {
-    const rows = csvString.split("\n")
+    const rows = csvString.trim().split("\n")
     const headers = rows[0].split(",").map(el => el.toLowerCase())
 
     let phoneIdx;
@@ -12,12 +12,11 @@ const parser = (csvString) => {
 
     const contactTypeIdx = headers.findIndex(el => el === "contact_type")
 
-    console.log(rows)
     const contacts = rows.map(row => {
-        let rowItems = row.split(",")
+        let rowItems = row.trim().split(",")
         return {
-            "phone": rowItems[phoneIdx],
-            "contact_type": contactTypeIdx > -1 ? rowItems[contactTypeIdx] : "general"
+            "phone": rowItems[phoneIdx].trim(),
+            "contact_type": contactTypeIdx > -1 ? rowItems[contactTypeIdx].trim() : "general"
         }
     })
 

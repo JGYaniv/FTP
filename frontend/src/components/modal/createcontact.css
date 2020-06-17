@@ -1,9 +1,9 @@
 .createcontact-container {
     width: 500px;
-    height: 300px;
+    height: 320px;
     padding: 30px;
     border-radius: 10px;
-    background-image: linear-gradient(to bottom,#f15656,#6d6060);
+    background-color: #ffd9d9;
 
     position: relative;
     animation-name: contact;
@@ -22,18 +22,20 @@
 }
 
 .createcontact-container > form > select {
-    background-color: #f74646;
-    width: 150px;
+    width: 175px;
+    height: 40px;
 }
 
 .createcontact-container > form > input {
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    height: 40px;
 }
 
 .createcontact-container > form > button {
     position: absolute;
     width: 100px;
+    height: 40px;
     bottom: 5px;
     right: 5px;
 }

@@ -35,3 +35,8 @@ export const createContact = contactData => dispatch => {
     .then(contact => dispatch(receiveContact(contact)),
     err => dispatch(receiveContactErrors(err.response.data)));
 };
+
+export const createBulkContacts = contactDataArr => dispatch => {
+  return ContactAPIUtil.createBulkContacts(contactDataArr)
+    .then(contacts => contacts.forEach(contact => dispatch(receiveContact(contact))));
+};

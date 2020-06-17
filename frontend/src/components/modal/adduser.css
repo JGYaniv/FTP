@@ -3,7 +3,7 @@
     height: 400px;
     padding: 30px;
     border-radius: 10px;
-    background-image: linear-gradient(to bottom,#f15656,#6d6060);
+    background-color: #ffd9d9;
 
     position: relative;
     animation-name: adduser;
@@ -38,6 +38,7 @@
 .adduser-container > form > button {
     position: absolute;
     width: 100px;
+    height: 40px;
     bottom: 5px;
     right: 5px;
 }
@@ -48,5 +49,5 @@
 }
 
 .radio label {
-    margin: 0 20px;
+    margin: 0px 8px;
 }

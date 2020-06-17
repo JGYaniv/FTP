@@ -64,12 +64,12 @@ router.post('/bulk',
 
   // passport.authenticate('jwt', {session: false} ),
   (req, res) => {
-
     const allContacts = JSON.parse(req.body.contacts); 
     let countFailures = 0;
     Promise.all(allContacts.map( (contact) =>
       
-      {const {errors, isValid } = validateContactInput(contact);
+      {
+        const {errors, isValid } = validateContactInput(contact);
     
       if (!isValid) {
         countFailures++;

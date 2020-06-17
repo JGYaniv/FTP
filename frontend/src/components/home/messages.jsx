@@ -26,6 +26,7 @@ class Messages extends React.Component {
     }
 
     render() {
+<<<<<<< HEAD
       let contactTypes = this.props.contactTypes ? this.props.contactTypes.map(
         (type) => <option value={type.name}>{type.name}</option>) : []
 
@@ -51,6 +52,29 @@ class Messages extends React.Component {
           </form>
         </div>
       );
+=======
+        return (
+            <div className="messages-container">
+                <h1>Send Message</h1>
+    
+                <form onSubmit={this.handleSubmit}>
+                    <textarea onChange={this.update("text")} 
+                        placeholder="Message content... (Max 140 char)"
+                        maxLength="140"
+                        className="form-control"
+                        value={this.state.text}></textarea>
+    
+                    <select>
+                        <option disabled defaultValue>Send To:</option>
+                        <option value="general">General</option>
+                        <option value="medic">Medic</option>
+                    </select>
+    
+                    <button className="basic-btn message-btn">SEND</button>
+                </form>
+            </div>
+        )
+>>>>>>> c9f87303d30c3283e5a514466e8af5ae4ed445c2
     }
 }
 

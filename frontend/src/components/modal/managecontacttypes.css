@@ -1,0 +1,59 @@
+.manage-contact-types {
+    width: 800px;
+    height: 500px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ffd9d9;
+
+    overflow: scroll;
+    position: relative;
+    animation-name: contact;
+    animation-duration: 0.5s;
+}
+
+.manage-contact-types-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0px;
+}
+
+.contact-type-item {
+  display: flex;
+}
+
+.contact-type-item-buttons {
+  display: flex;
+  margin-right: 50px;
+}
+
+.contact-type-item-buttons i {
+  margin: 0 10px;
+}
+
+.add-contact-btn {
+  font-size: 20px;
+  width: 150px;
+}
+
+.manage-contact-types-edit {
+    width: 400px;
+    height: 200px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ffd9d9;
+    animation-name: contact;
+    animation-duration: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.manage-contact-types-edit input {
+  width: 200px;
+  margin: 20px 0;
+}
+
+.manage-contact-types-edit button:first-child {
+  margin-right: 50px;
+}
+

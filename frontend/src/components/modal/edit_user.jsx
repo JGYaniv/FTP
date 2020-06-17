@@ -1,7 +1,7 @@
 import React from 'react';
 import AddUserCSS from './adduser.css'
-// can be combined w edit user into one user form to DRY
-class AddUser extends React.Component {
+
+class EditUser extends React.Component {
     constructor(props) {
         super(props)
         
@@ -29,27 +29,30 @@ class AddUser extends React.Component {
             admin = true;
         } 
 
-        this.props.createUser({email: this.state.email, admin: admin, phone: phone, password: 'hunter12'});
+        this.props.updateUser({email: this.state.email, admin: admin, phone: phone});
     }
 
     render() {
-
-
+        let phone = '';
+        if (!!this.props.selectedUser.phone) {
+            phone = this.props.selectedUser.phone
+            phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6)
+        }
 
         return (
             <div className="adduser-container">
         
-                <h1>Add an Organizer</h1>
+                <h1>Edit an Organizer</h1>
 
                 <form onSubmit={this.handleSubmit}>
 
                     <label>Email</label>
                     <input type="email" placeholder="alexlee@alexlee.com"
-                     onChange={this.update("email")}/>
+                     onChange={this.update("email")} value={this.props.selectedUser.email}/>
                     
                     <label>Phone Number</label>
                     <input type="tel" name="phone" placeholder="123-456-7890"
-                        onChange={this.update("phone")}/>
+                        onChange={this.update("phone")} value={!!phone ? phone : ''}/>
                     
 
                     <label>Admin</label>
@@ -57,20 +60,20 @@ class AddUser extends React.Component {
                         <div className="radio">
                             <label><input type="radio" name="optradio" 
                                 onChange={this.update("admin")}
-                            value={true}/> Yes</label>
+                            value={true} checked={this.props.selectedUser.admin ? true : false}/> Yes</label>
                         </div>
                         <div className="radio">
                             <label><input type="radio" name="optradio" 
                             onChange={this.update("admin")} 
-                            value={false}/> No</label>
+                            value={false} checked={!this.props.selectedUser.admin ? true : false}/> No</label>
                         </div>
                     </div>
 
-                    <button className='btn basic-btn' type="submit">ADD</button>
+                    <button className='btn basic-btn' type="submit">EDIT</button>
                 </form>
             </div>
         )
     }
 }
 
-export default AddUser;
+export default EditUser;
