@@ -33,7 +33,6 @@
 .message-text {
     margin: 0;
     max-width: 100%;
-<<<<<<< HEAD
     color: white;
 }
 
@@ -41,7 +40,4 @@
     max-width: 170px;
     margin: 0;
     color: lightgray;
-=======
-    color: black;
->>>>>>> c9f87303d30c3283e5a514466e8af5ae4ed445c2
 }
