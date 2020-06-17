@@ -11,7 +11,7 @@ module.exports = function validateContactInput(data){
   }
 
   if (Validator.isEmpty(data.contactType)){
-    errors.contact_type = "Contact type is required";
+    errors.contactType = "Contact type is required";
   }
   
   return {

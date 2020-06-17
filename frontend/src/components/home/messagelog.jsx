@@ -20,6 +20,9 @@ class MessageLog extends React.Component {
                 <p className="message-text">
                     {message.text}
                 </p>
+                <p className="message-stats">
+                    {`${message.successCounter} / ${message.failureCounter}`}
+                </p>
             </li>
         ));
     

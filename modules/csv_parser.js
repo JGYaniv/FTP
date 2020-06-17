@@ -21,7 +21,7 @@ const parser = (csvString) => {
         }
     })
 
-    return contacts.slice(1)
+    return contacts.slice(1).trim()
 }
 
 module.exports = parser;
