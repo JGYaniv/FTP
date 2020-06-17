@@ -1,6 +1,5 @@
 import React from 'react';
-import manageContactTypesCSS from './manage_contact_types.css';
-import EditContactTypes from './edit_contact_types';
+import manageContactTypesCSS from './managecontacttypes.css';
 
 class ManageContactTypes extends React.Component {
   constructor(props) {
@@ -25,19 +24,13 @@ class ManageContactTypes extends React.Component {
     this.setState({ clicked: "edit" });
   }
 
-  componentDidMount() {
-    this.props.fetchContactTypes();
-  }
-
-  // componentDidUpdate() {
+  // componentDidMount() {
   //   this.props.fetchContactTypes();
-  //   return;
   // }
 
   update(e) {
     this.setState({ name: e.target.value });
   }
-
 
   render() {
     const contactTypeData = { name: this.state.name };

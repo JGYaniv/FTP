@@ -41,7 +41,6 @@ router.post('/',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-
     const newContact = new Contact({
       phone: req.body.phone,
       contactType: req.body.contactType,
@@ -55,13 +54,13 @@ router.post('/bulk',
 
   passport.authenticate('jwt', {session: false} ),
   (req, res) => {
-
     const allContacts = JSON.parse(req.body.contacts); 
     const contactsCreated = [];
     const contactFailures = [];
     allContacts.forEach( (contact,idx) =>
       
-      {const {errors, isValid } = validateContactInput(contact);
+      {
+        const {errors, isValid } = validateContactInput(contact);
     
       if (!isValid) {
         errors.idx = idx;
@@ -72,9 +71,9 @@ router.post('/bulk',
 
       {const newContact = new Contact({
         phone: contact.phone, 
-        contactType: contact.contactType
+        contactType: contact.contact_type
       })  
-
+      debugger
       newContact.save()
         .then(contact => { 
           contactsCreated.push(contact)})

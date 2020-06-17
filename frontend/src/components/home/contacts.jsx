@@ -8,7 +8,7 @@ const Contacts = ({openModal}) => {
             <h2>TOTAL CONTACTS</h2>
             <button className="basic-btn" onClick={() => openModal('createContact')}>CREATE</button>
             <button className="basic-btn" onClick={() => openModal('manageTypes')}>MANAGE TYPES</button>
-            <button className="basic-btn">BULK UPLOAD</button>
+            <button className="basic-btn" onClick={() => openModal('bulkUpload')}>BULK UPLOAD</button>
         </div>
     )
 }

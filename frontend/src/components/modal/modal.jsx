@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import ModalCSS from './modal.css'
 import AddUser from './add_user'
 // import ManageContacts from '../../components/modal/manage_contacts'
-import CreateContact from './create_contact'
+import CreateContactContainer from './create_contact_container'
 // import BulkUploadContacts from '../../components/modal/bulk_upload_contacts'
-import ManageContactTypesContainer from '../home/manage_contact_types_container';
+import ManageContactTypesContainer from './manage_contact_types_container';
 import { createUser } from '../../actions/user_actions';
+import BulkUploadContainer from './bulk_upload_container';
 
 function Modal({modal, closeModal, createUser}) {
   if (!modal) {
@@ -22,13 +23,16 @@ function Modal({modal, closeModal, createUser}) {
     //   component = <ManageContacts />;
     //   break;
     case 'createContact':
-      component = <CreateContact />;
+      component = <CreateContactContainer />;
       break;
     // case 'bulkUploadContacts':
     //   component = <bulkUploadContacts />;
     //   break;
     case 'manageTypes':
       component = <ManageContactTypesContainer />
+      break;
+    case 'bulkUpload':
+      component = <BulkUploadContainer />
       break;
     default:
       return null;

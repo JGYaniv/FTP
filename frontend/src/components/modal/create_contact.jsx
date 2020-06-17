@@ -1,26 +1,68 @@
 import React from 'react';
 import CreateContactCSS from './createcontact.css'
 
-const CreateContact = () => {
-    return (
+class CreateContact extends React.Component {
+	constructor(props) {
+		super(props);
 
-        <div className="createcontact-container">
-            <form>
-                <h1>Add a Contact</h1>
-                <input type="tel" name="phone" placeholder="123-456-7890"/>
+		this.state = {
+			phone: "",
+			contactType: ""
+		};
 
-            
-                <select class="selectpicker">
-                    <option>General</option>
-                    <option>Medic</option>
-                    <option>ALEXLEE</option>
-                </select>
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
 
-                
-                <button className='btn btn-danger' type="submit">Add</button>
-            </form>
-        </div>
-    )
+	update(field) {
+		return e => this.setState({ [field]: e.target.value });
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		const contactData = this.state;
+		contactData.phone = contactData.phone.split('-').join('')
+
+		this.props.createContact(contactData).then(() => this.props.closeModal());
+		this.setState({ phone: "", contactType: "" });
+	}
+
+	render() {
+		const { contactTypes } = this.props;
+
+		const contactTypeOptions = contactTypes.map((contactType, i) => {
+			return (
+				<option key={i} value={contactType.name}>
+					{contactType.name}
+				</option>
+			);
+		});
+
+		return (
+			<div className="createcontact-container">
+				<form onSubmit={this.handleSubmit}>
+					<h1>Add a Contact</h1>
+					<input type="tel"
+						name="phone"
+						placeholder="Enter Phone Number (e.g. 123-456-7890)"
+						value={this.state.phone}
+						onChange={this.update("phone")}/>
+
+					<select className="selectpicker" 
+						defaultValue=""
+						onChange={this.update("contactType")}>
+							<option value="" disabled>Select a Contact Type</option>
+							{contactTypeOptions}
+					</select>
+	
+					<button className='btn btn-danger'
+						type="submit"
+						>
+								Add
+					</button>
+				</form>
+			</div>
+		)
+	}
 }
 
 export default CreateContact;
