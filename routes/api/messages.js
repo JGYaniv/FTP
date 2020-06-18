@@ -25,28 +25,21 @@ router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateMessageInput(req.body);
-
+    const contactType = req.body.contactType;
+    const text = req.body.text;
     if (!isValid) {
       return res.status(400).json(errors);
     }
 
-    // const newMessage = new Message({
-    //   authorId: req.body.authorId, 
-    //   // authorId: "5ee7d16dccef6335a14d7023",
-    //   text: req.body.text,
-    //   contactType: req.body.contactType
-    // });
-
-    Contact.find({contactType: req.body.contactType})
-      .then(contacts => Promise.all(contacts.map(contact => {
-        let phone = encryptor(hiddenKey).decrypt(contact.phone);
-
-        sendMessage(req.body.text, "+1" + phone)
-      })))
-      .then(messages => {
-        
-        const successCounter = messages.filter(msg => !msg.errorCode).length;
-        const failureCounter = messages.length - successCounter;
+    let prom = Contact.find({contactType: contactType})
+      .then(contacts => {
+        return Promise.all(contacts.map(contact => {
+          let phone = "+1" + encryptor(hiddenKey).decrypt(contact.phone);
+          sendMessage(text, phone)
+        }, e => console.log(e)))})
+      prom.then(messages => {
+        // const successCounter = messages.filter(msg => !msg.errorCode).length;
+        // const failureCounter = messages.length - successCounter;
         
         const messageParams = {
           authorId: req.body.authorId, 
@@ -55,7 +48,8 @@ router.post('/',
         }
 
         Message.create(messageParams)
-          .then(message => res.json({...message, successCounter, failureCounter }))
+          .then(message => res.json({...message._doc}))
+          // .then(message => res.json({...message._doc, successCounter, failureCounter }))
           .catch(err => res.status(500).send({ message: 'error creating message homie' }));
        
       })
