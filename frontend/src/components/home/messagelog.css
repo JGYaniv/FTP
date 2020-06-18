@@ -1,4 +1,5 @@
 .messagelog-container {
+    margin: 0 auto;
     margin-top: 20px;
     width: 95%;
     background-color: #ffd9d9;
@@ -6,7 +7,7 @@
     padding: 5px 10px 0px 10px;
     position: relative;
     left: 20px;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 .message-list-header {

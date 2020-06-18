@@ -12,6 +12,10 @@ export const updateContactType = (typeData, typeId) => {
   return axios.patch(`/api/contact_types/edit/${typeId}`, typeData);
 };
 
-export const deleteContactType = typeId => {
-  return axios.delete(`/api/contact_types/${typeId}`);
+export const deleteContactType = typeName => {
+  return axios.delete(`/api/contact_types/delete/${typeName}`);
+};
+
+export const fetchContactTypeCount = typeName => {
+  return axios.get(`/api/contact_types/count/${typeName}`);
 };

@@ -1,4 +1,9 @@
-import { RECEIVE_ALL_CONTACT_TYPES, RECEIVE_CONTACT_TYPE, EDIT_CONTACT_TYPE, REMOVE_CONTACT_TYPE } from '../actions/contact_type_actions';
+import { 
+  RECEIVE_ALL_CONTACT_TYPES,
+  RECEIVE_CONTACT_TYPE,
+  EDIT_CONTACT_TYPE,
+  REMOVE_CONTACT_TYPE,
+} from '../actions/contact_type_actions';
 
 const contactTypeReducer = (state = [], action) => {
   Object.freeze(state);

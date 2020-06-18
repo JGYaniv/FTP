@@ -1,8 +1,7 @@
 .contacts-container {
-    width: 46%;
+    width: 49%;
     height: 320px;
     position: relative;
-    left: 20px;
     padding: 15px;
     /* border: 2px solid black; */
     display: flex;
