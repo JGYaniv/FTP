@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import EditUser from './edit_user';
-import { updateUser } from '../../actions/user_actions';
+import { fetchUsers, updateUser } from '../../actions/user_actions';
 
 const mSTP = state => {
     return {
@@ -10,6 +10,7 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
+        fetchUsers: () => dispatch(fetchUsers()),
         updateUser: (userData, userId) => dispatch(updateUser(userData, userId)),
     };
 };

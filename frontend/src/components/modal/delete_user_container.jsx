@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import DeleteUser from './delete_user';
-import { deleteUser } from '../../actions/user_actions';
+import { fetchUsers, deleteUser } from '../../actions/user_actions';
 
 const mSTP = state => {
     return {
@@ -11,6 +11,7 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
+        fetchUsers: () => dispatch(fetchUsers()),
         deleteUser: userId => dispatch(deleteUser(userId)),
     };
 };

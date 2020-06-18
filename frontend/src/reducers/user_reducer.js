@@ -10,8 +10,7 @@ const userReducer = (state = [], action) => {
       newState.push(action.user.data)
       return newState;
     case REMOVE_USER:
-      delete newState[action.userId];
-      return newState;
+      return newState.filter(user => user._id !== action.userId);
     default:
       return state;
   }

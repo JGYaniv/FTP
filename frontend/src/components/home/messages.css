@@ -1,8 +1,8 @@
 .messages-container {
-    width: 35%;
+    width: 46%;
     height: 320px;
     position: relative;
-    right: 2.5%;
+    /* right: 2.5%; */
     padding: 15px;
     /* border: 2px solid black; */
     display: flex;

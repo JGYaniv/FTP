@@ -8,7 +8,6 @@ import EditUser from './edit_user_container';
 import CreateContactContainer from './create_contact_container'
 // import BulkUploadContacts from '../../components/modal/bulk_upload_contacts'
 import ManageContactTypesContainer from './manage_contact_types_container';
-import { createUser } from '../../actions/user_actions';
 import BulkUploadContainer from './bulk_upload_container';
 import DeleteUser from './delete_user_container'
 
@@ -19,10 +18,10 @@ function Modal({modal, closeModal}) {
   let component;
   switch (modal) {
     case 'addUser':
-      component = <AddUser />
+      component = <AddUser closeModal={closeModal}/>
       break;
     case 'editUser':
-      component = <EditUser />
+      component = <EditUser closeModal={closeModal}/>
       break;
     case 'deleteUser':
       component = <DeleteUser closeModal={closeModal}/>

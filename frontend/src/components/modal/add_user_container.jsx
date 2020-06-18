@@ -9,6 +9,7 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
+        fetchUsers: () => dispatch(fetchUsers()),
         createUser: userData => dispatch(createUser(userData)),
     };
 };

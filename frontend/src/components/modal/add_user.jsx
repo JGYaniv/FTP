@@ -19,6 +19,9 @@ class AddUser extends React.Component {
         return e => this.setState({ [field]: e.target.value });
     }
 
+    componentWillUnmount() {
+        this.props.fetchUsers();
+    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -29,7 +32,8 @@ class AddUser extends React.Component {
             admin = true;
         } 
 
-        this.props.createUser({email: this.state.email, admin: admin, phone: phone, password: 'hunter12'});
+        this.props.createUser({email: this.state.email, admin: admin, phone: phone, password: 'hunter12'})
+        .then(()=>this.props.closeModal());
     }
 
     render() {

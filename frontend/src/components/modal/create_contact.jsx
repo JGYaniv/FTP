@@ -57,7 +57,7 @@ class CreateContact extends React.Component {
 							{contactTypeOptions}
 					</select>
 	
-					<button className='btn btn-danger'
+					<button className='basic-btn'
 						type="submit"
 						>
 								Add

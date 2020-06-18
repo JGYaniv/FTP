@@ -5,7 +5,7 @@
     border-radius: 10px;
     background-color: #ffd9d9;
 
-    overflow: scroll;
+    overflow-y: scroll;
     position: relative;
     animation-name: contact;
     animation-duration: 0.5s;

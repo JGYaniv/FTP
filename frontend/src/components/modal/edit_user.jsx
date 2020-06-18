@@ -30,6 +30,9 @@ class EditUser extends React.Component {
         return e => this.setState({ [field]: e.target.value });
     }
 
+    componentWillUnmount() {
+        this.props.fetchUsers();
+    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -40,9 +43,10 @@ class EditUser extends React.Component {
             admin = true;
         }
 
-        debugger;
 
-        this.props.updateUser({ email: this.state.email, admin: admin, phone: phone }, this.props.selectedUser._id);
+        this.props.updateUser({ email: this.state.email, admin: admin, phone: phone }, this.props.selectedUser._id)
+        .then(()=> {
+            this.props.closeModal()})
     }
 
     render() {

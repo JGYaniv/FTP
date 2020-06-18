@@ -1,10 +1,12 @@
 .messagelog-container {
-    margin: 0 auto;
     margin-top: 20px;
     width: 95%;
     background-color: #ffd9d9;
     border-radius: 5px;
     padding: 5px 10px 0px 10px;
+    position: relative;
+    left: 20px;
+    max-width: 900px;
 }
 
 .message-list-header {
@@ -13,11 +15,10 @@
 
 .message-list {
     padding: 0;
-    overflow: scroll;
     height: 400px;
     padding: 15px;
     /* border: 2px solid black; */
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .message-list-item {

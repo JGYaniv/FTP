@@ -1,8 +1,8 @@
 .contacts-container {
-    width: 35%;
+    width: 46%;
     height: 320px;
     position: relative;
-    left: 2.5%;
+    left: 20px;
     padding: 15px;
     /* border: 2px solid black; */
     display: flex;
@@ -38,7 +38,6 @@
     color: #212529;
     animation-name: totalcontacts;
     animation-duration: 1s;
-    animation-iteration-count: 2;
 }
 
 

@@ -135,9 +135,21 @@ router.delete('/:id', (req, res) => {
 });
 
 
-// router.patch('/:id', (req,res) => {
+router.patch('/edit/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
 
-// })
+    User.findById(req.params.id)
+      .then(user => {
+        user.email = req.body.email;
+        user.admin = req.body.admin;
+        user.phone = req.body.phone;
+        user.save()
+          .then(user => res.json(user))
+          .catch(err => res.status(400).json(err))
+      })
+
+  });
 
 
 module.exports = router;
