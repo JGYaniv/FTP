@@ -37,7 +37,7 @@ router.get('/:id',
 
 router.post('/',
 
-  passport.authenticate('jwt', {session: false} ),
+  // passport.authenticate('jwt', {session: false} ),
   (req, res) => {
     const {errors, isValid } = validateContactInput(req.body);
   

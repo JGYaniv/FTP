@@ -129,9 +129,15 @@ router.post('/',
 
 router.delete('/:id', (req, res) => {
   passport.authenticate('jwt', { session: false }),
-    Contact.findByIdAndDelete(req.params.id)
+    User.findByIdAndDelete(req.params.id)
       .then( () => res.json({msg: 'User deleted'}) )
       .catch(err => res.status(400).json(err))
 });
+
+
+// router.patch('/:id', (req,res) => {
+
+// })
+
 
 module.exports = router;
