@@ -11,3 +11,4 @@ module.exports = sendMessage = (body, phoneNumber) => {
         })
         .catch(e => ({ status: e.status, errorCode: e.code }))
 }
+
