@@ -8,7 +8,7 @@ const Contact = require('../../models/Contact');
 const validateContactInput = require('../../validation/contacts');
 const encryptor = require('../../modules/encryptor');
 const { json } = require("body-parser");
-const hiddenKey = require('../../config/keys').hiddenKey;
+const hiddenKey = process.env.hiddenKey ? process.env.hiddenKey : require('./config/keys').hiddenKey;
 
 router.get('/', 
   passport.authenticate('jwt', { session: false }),
