@@ -5,7 +5,7 @@ const contactReducer = (state = 0, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_CONTACTS:
-      return action.contacts;
+      return action.contacts.data.count;
     case RECEIVE_CONTACT:
       return state + 1
     case RECEIVE_CONTACTS:

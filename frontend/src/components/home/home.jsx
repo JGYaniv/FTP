@@ -6,10 +6,10 @@ import Messages from './messages';
 import MessageLog from './messagelog';
 
 class Home extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchContactTypes();
     this.props.fetchMessages();
-    // this.props.fetchContacts();
+    this.props.fetchContacts();
   }
 
   render() {

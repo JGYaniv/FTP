@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const fetchContacts = () => {
-  return axios.get('/api/contacts');
+  return axios.get('/api/contacts/count');
 };
 
 export const createContact = contactData => {
