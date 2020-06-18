@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-const Contact = require('../../models/ContactType');
+const Contact = require('../../models/Contact');
 const validateContactTypeInput = require('../../validation/contactTypes');
 const ContactType = require("../../models/ContactType");
 
@@ -35,25 +35,27 @@ router.post('/',
 
 }); 
 
-router.delete('/:id', 
+
+router.delete('/delete/:name', 
   passport.authenticate('jwt', {session: false} ),
   (req, res) => {
-
-  ContactType.findByIdAndDelete(req.params.id)
-    .then( Contact.deleteMany({contactType: })
-    .catch(err => res.status(400).json(err))
-    .then( () => res.json({msg: 'CT deleted'}) )
+    // debugger
+    Contact.deleteMany({"contactType": req.params.name})
+      .then((ContactType.deleteOne({"name": req.params.name}))
+        .catch(err => res.status(400).json({msg: "CT not found"})))     
+      .catch(err => res.status(400).json(err))
+      .then( (result) => res.json(result) )
 });
 
-router.post('/delete/:id', 
-  // passport.authenticate('jwt', {session: false} ),
-  (req, res) => {
-  Contact.deleteMany({contactType: req.body.name})
-    .then()
-    .then(ContactType.findByIdAndDelete(req.params.id))
-    .catch(err => res.status(400).json(err))
-    .then( () => res.json({msg: 'CT deleted'}) )
-});
+router.get('/count/:name', 
+
+  (req,res) => {
+
+    Contact.countDocuments({"contactType": req.params.name})
+      .then(result => res.json(result)) 
+      .catch(err => res.status(400).json(err))
+  }
+);
 
 
 
