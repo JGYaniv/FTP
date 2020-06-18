@@ -1,7 +1,36 @@
 .bulk-upload {
-  background: white;
+    width: 500px;
+    height: 500px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ffd9d9;
+
+    position: relative;
+    animation-name: contact;
+    animation-duration: 0.5s;
 }
 
 #file {
   display: none;
+}
+
+.bulk-contact-list {
+  overflow-y: scroll;
+  height: 80%;
+}
+
+.bulk-contact-list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bulk-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bulk-add-btns {
+  display: flex;
+  justify-content: space-between;
 }

@@ -6,7 +6,7 @@ const Contact = require('../../models/Contact');
 const Message = require('../../models/Message');
 const validateMessageInput = require('../../validation/messages');
 const encryptor = require('../../modules/encryptor');
-const hiddenKey = process.env.hiddenKey ? process.env.hiddenKey : require('./config/keys').hiddenKey;
+const hiddenKey = process.env.hiddenKey ? process.env.hiddenKey : require('../../config/keys').hiddenKey;
 
 const sendMessage = require('../../modules/sms_gateway');
 
