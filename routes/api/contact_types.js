@@ -40,10 +40,21 @@ router.delete('/:id',
   (req, res) => {
 
   ContactType.findByIdAndDelete(req.params.id)
-    .then( () => res.json({msg: 'CT deleted'}) )
+    .then( Contact.deleteMany({contactType: })
     .catch(err => res.status(400).json(err))
-
+    .then( () => res.json({msg: 'CT deleted'}) )
 });
+
+router.post('/delete/:id', 
+  // passport.authenticate('jwt', {session: false} ),
+  (req, res) => {
+  Contact.deleteMany({contactType: req.body.name})
+    .then()
+    .then(ContactType.findByIdAndDelete(req.params.id))
+    .catch(err => res.status(400).json(err))
+    .then( () => res.json({msg: 'CT deleted'}) )
+});
+
 
 
 router.patch('/edit/:id', 
@@ -62,3 +73,4 @@ router.patch('/edit/:id',
 
 
 module.exports = router; 
+
