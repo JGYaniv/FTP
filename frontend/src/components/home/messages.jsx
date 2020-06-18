@@ -37,7 +37,8 @@ class Messages extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <textarea
               onChange={this.update("text")}
-              placeholder="Message content..."
+              maxLength="140"
+              placeholder="Message content... (140 max char)"
               value={this.state.text}></textarea>
 
             <select value={this.state.contactType} onChange={this.update("contactType")}>
@@ -47,7 +48,7 @@ class Messages extends React.Component {
               {contactTypes}
             </select>
 
-            <button>Send</button>
+            <button className="basic-btn message-btn">SEND</button>
           </form>
         </div>
       );

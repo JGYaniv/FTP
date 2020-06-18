@@ -45,7 +45,7 @@ class CreateContact extends React.Component {
 					<label>Phone Number</label>
 					<input type="tel"
 						name="phone"
-						placeholder="Enter Phone Number (e.g. 123-456-7890)"
+						placeholder="123-456-7890"
 						value={this.state.phone}
 						onChange={this.update("phone")}/>
 
@@ -53,7 +53,7 @@ class CreateContact extends React.Component {
 					<select className="selectpicker" 
 						defaultValue=""
 						onChange={this.update("contactType")}>
-							<option value="" disabled>Select a Contact Type</option>
+							<option value="" disabled>Select Contact Type</option>
 							{contactTypeOptions}
 					</select>
 	

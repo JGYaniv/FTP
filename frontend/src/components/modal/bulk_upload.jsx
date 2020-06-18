@@ -91,11 +91,13 @@ class BulkUpload extends React.Component {
 
     const contactItems = this.bulkContacts ?
       this.bulkContacts.map((contact, i) => (
-        <div key={i}>
-          {contact.phone}
-          {contact.contactType}
-          <button onClick={() => this.setState({ phone: this.bulkContacts[i].phone, contactType: this.bulkContacts[i].contactType, idx: i, stage: 4 })}>Edit</button>
-          <button onClick={this.handleDelete(i)}>Delete</button>
+        <div className="bulk-contact-list-item" key={i}>
+          <div>{contact.phone.slice(0, 3) + '-' + contact.phone.slice(3, 6) + '-' + contact.phone.slice(6) + ' '} </div>
+          <div>{contact.contactType}</div>
+          <div>
+            <i onClick={() => this.setState({ phone: this.bulkContacts[i].phone, contactType: this.bulkContacts[i].contactType, idx: i, stage: 4 })} className="fas fa-edit"></i>
+            <i onClick={this.handleDelete(i)} className="fas fa-trash-alt"></i>
+          </div>
         </div>
       )) : null;
 
@@ -115,27 +117,30 @@ class BulkUpload extends React.Component {
     if (this.state.stage === 1) {
       component = 
       <div>
-        <button onClick={this.handleFileClick}>Choose CSV File</button>
+        <button className="basic-btn" onClick={this.handleFileClick}>CHOOSE CSV FILE</button>
         <input id="file"
           type="file"
           accept=".csv"
           onChange={this.handleCSVFile} />
-        <p>* Must have column header of "phone_number". Optionally can have a header "contactType", otherwise will be classified as "general" contact type.</p>
+        <label>* Must have column header of "phone_number". Optionally can have a header "contactType", 
+          otherwise will be classified as "general" contact type.</label>
       </div>
     } else if (this.state.stage === 2) {
       component = 
-        <div>
+        <div className="bulk-contact-list">
           {contactItems}
-          <button onClick={this.handleSubmit}>Confirm</button>
-          <button onClick={() => this.setState({ stage: 3 })}>+</button>
+          <div className="bulk-add-btns">
+            <button className="basic-btn" onClick={() => this.setState({ stage: 3 })}>+</button>
+            <button className="basic-btn" onClick={this.handleSubmit}>CONFIRM</button>
+          </div>
         </div>
     } else if (this.state.stage === 3) {
       component = 
-        <div>
+        <div className="-add">
           <h1>Add Contact</h1>
           <input type="tel"
 						name="phone"
-						placeholder="Enter Phone Number (e.g. 123-456-7890)"
+						placeholder="123-456-7890"
 						value={this.state.phone}
 						onChange={this.update("phone")}/>
 
@@ -150,7 +155,7 @@ class BulkUpload extends React.Component {
         </div>
     } else if (this.state.stage === 4) {
       component = 
-        <div>
+        <div className="bulk-edit-contact">
           <h1>Edit Contact</h1>
           <input type="tel"
 						name="phone"
@@ -165,7 +170,7 @@ class BulkUpload extends React.Component {
 							{contactTypeOptions}
 					</select>
 
-          <button onClick={this.handleEdit}>Submit</button>
+          <button className="basic-btn" onClick={this.handleEdit}>SUBMIT</button>
         </div>
     }
 
