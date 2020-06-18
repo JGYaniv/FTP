@@ -2,7 +2,7 @@ import React from 'react';
 import ContactsCSS from './contacts.css'
 
 const Contacts = ({openModal, contacts}) => {
-    let contactCount = contacts ? contacts : null
+    let contactCount = contacts ? contacts : 0;
     
     return (
         <div className="contacts-container">
