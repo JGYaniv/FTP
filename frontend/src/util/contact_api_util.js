@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const fetchContacts = () => {
-  return axios.get('/api/contacts');
+  return axios.get('/api/contacts/count');
 };
 
 export const createContact = contactData => {
@@ -31,7 +31,7 @@ export const parser = (csvString) => {
       let rowItems = row.split(",")
       return {
           "phone": rowItems[phoneIdx],
-          "contact_type": contactTypeIdx > -1 ? rowItems[contactTypeIdx] : "general"
+          "contactType": contactTypeIdx > -1 ? rowItems[contactTypeIdx] : "general"
       }
   })
 

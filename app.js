@@ -9,7 +9,7 @@ const User = require('./models/User');
 const users = require('./routes/api/users');
 const messages = require('./routes/api/messages');
 const contacts = require('./routes/api/contacts');
-const contact_types = require('./routes/api/contact_types')
+const contactTypes = require('./routes/api/contact_types')
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -27,7 +27,7 @@ app.use("/api/users", users);
 app.use("/api/messages", messages);
 
 app.use("/api/contacts", contacts);
-app.use("/api/contact_types", contact_types);
+app.use("/api/contact_types", contactTypes);
 
 const port = process.env.PORT || 5000;
 

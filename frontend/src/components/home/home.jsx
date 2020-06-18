@@ -6,8 +6,10 @@ import Messages from './messages';
 import MessageLog from './messagelog';
 
 class Home extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchContactTypes();
+    this.props.fetchMessages();
+    this.props.fetchContacts();
   }
 
   render() {
@@ -19,11 +21,11 @@ class Home extends React.Component {
         users={this.props.users}/>
 
       <div className="contact-message-container">
-          <Contacts openModal={this.props.openModal}/>
+          <Contacts openModal={this.props.openModal}
+            contacts={this.props.contacts}/>
 
           <Messages createMessage={this.props.createMessage}
             contactTypes={this.props.contactTypes}
-            fetchContactTypes={this.props.fetchContactTypes}
             currentUserId={this.props.currentUserId} />
       </div>
 

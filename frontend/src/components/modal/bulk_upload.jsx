@@ -10,11 +10,14 @@ class BulkUpload extends React.Component {
       stage: 1,
       phone: "",
       contactType: "",
+      idx: null
     }
 
     this.handleCSVFile = this.handleCSVFile.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFileClick = this.handleFileClick.bind(this);
   }
 
   handleCSVFile(e) {
@@ -35,30 +38,33 @@ class BulkUpload extends React.Component {
 
   handleAdd(e) {
     e.preventDefault();
-    const newContact = { phone: this.state.phone, contact_type: this.state.contactType };
+    const newContact = { phone: this.state.phone, contactType: this.state.contactType };
     newContact.phone = newContact.phone.split('-').join('')
 
-    if (!newContact.contact_type) {
-      newContact.contact_type = "general"
+    if (!newContact.contactType) {
+      newContact.contactType = "general"
     }
 
     if (newContact.phone.length < 10) {
-      this.setState({ phone: newContact.phone, contactType: newContact.contact_type });
+      this.setState({ phone: newContact.phone, contactType: newContact.contactType });
     } else {
       this.bulkContacts.push(newContact);
       this.setState({ phone: "", contactType: "", stage: 2 });
     }
   }
 
-  handleEdit(idx) {
-    return e => { 
-      e.preventDefault();
-    }
+  handleEdit(e) {
+    e.preventDefault();
+
+    this.bulkContacts[this.state.idx].phone = this.state.phone;
+    this.bulkContacts[this.state.idx].contactType = this.state.contactType;
+    this.setState({ phone: "", contactType: "", stage: 2 });
   }
 
   handleDelete(idx) {
     return e => { 
       e.preventDefault();
+
       this.bulkContacts = this.bulkContacts.filter((contact, i) => i !== idx);
       this.forceUpdate();
     };
@@ -76,6 +82,10 @@ class BulkUpload extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
+  handleFileClick() {
+    document.getElementById("file").click();
+  }
+
   render() {
     const { contactTypes } = this.props;
 
@@ -83,15 +93,19 @@ class BulkUpload extends React.Component {
       this.bulkContacts.map((contact, i) => (
         <div key={i}>
           {contact.phone}
-          {contact.contact_type}
-          <button>Edit</button>
+          {contact.contactType}
+          <button onClick={() => this.setState({ phone: this.bulkContacts[i].phone, contactType: this.bulkContacts[i].contactType, idx: i, stage: 4 })}>Edit</button>
           <button onClick={this.handleDelete(i)}>Delete</button>
         </div>
       )) : null;
 
+    const currentContactType = this.state.contactType;
+
     const contactTypeOptions = contactTypes.map((contactType, i) => {
 			return (
-				<option key={i} value={contactType.name}>
+        <option key={i}
+          value={contactType.name}
+          {...currentContactType === contactType ? 'selected' : '' }>
 					{contactType.name}
 				</option>
 			);
@@ -101,10 +115,12 @@ class BulkUpload extends React.Component {
     if (this.state.stage === 1) {
       component = 
       <div>
-        <input type="file"
+        <button onClick={this.handleFileClick}>Choose CSV File</button>
+        <input id="file"
+          type="file"
           accept=".csv"
           onChange={this.handleCSVFile} />
-        <p>* Must have column header of "phone_number". Optionally can have a header "contact_type", otherwise will be classified as "general" contact type.</p>
+        <p>* Must have column header of "phone_number". Optionally can have a header "contactType", otherwise will be classified as "general" contact type.</p>
       </div>
     } else if (this.state.stage === 2) {
       component = 
@@ -124,13 +140,32 @@ class BulkUpload extends React.Component {
 						onChange={this.update("phone")}/>
 
 					<select className="selectpicker" 
-						defaultValue=""
+						value={this.state.contactType}
 						onChange={this.update("contactType")}>
 							<option value="" disabled>Select a Contact Type</option>
 							{contactTypeOptions}
 					</select>
 
           <button onClick={this.handleAdd}>Submit</button>
+        </div>
+    } else if (this.state.stage === 4) {
+      component = 
+        <div>
+          <h1>Edit Contact</h1>
+          <input type="tel"
+						name="phone"
+						placeholder="Enter Phone Number (e.g. 123-456-7890)"
+						value={this.state.phone}
+						onChange={this.update("phone")}/>
+
+					<select className="selectpicker" 
+						defaultValue=""
+						onChange={this.update("contactType")}>
+							<option value="" disabled>Select a Contact Type</option>
+							{contactTypeOptions}
+					</select>
+
+          <button onClick={this.handleEdit}>Submit</button>
         </div>
     }
 

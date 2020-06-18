@@ -23,11 +23,12 @@ class Messages extends React.Component {
         const message = this.state;
         this.props.createMessage(message);
         this.setState({ text: "", contactType: "" });
+        // this.forceUpdate();
     }
 
     render() {
       let contactTypes = this.props.contactTypes ? this.props.contactTypes.map(
-        (type) => <option value={type.name}>{type.name}</option>) : []
+        (type, i) => <option key={i} value={type.name}>{type.name}</option>) : []
 
       return (
         <div className="messages-container">
@@ -37,11 +38,10 @@ class Messages extends React.Component {
             <textarea
               onChange={this.update("text")}
               placeholder="Message content..."
-              value={this.state.text}
-            ></textarea>
+              value={this.state.text}></textarea>
 
-            <select>
-              <option disabled defaultValue>
+            <select value={this.state.contactType} onChange={this.update("contactType")}>
+              <option disabled value="">
                 Send To:
               </option>
               {contactTypes}

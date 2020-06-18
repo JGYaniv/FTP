@@ -2,6 +2,7 @@ import * as ContactAPIUtil from '../util/contact_api_util';
 
 export const RECEIVE_ALL_CONTACTS = "RECEIVE_ALL_CONTACTS";
 export const RECEIVE_CONTACT = "RECEIVE_CONTACT";
+export const RECEIVE_CONTACTS = "RECEIVE_CONTACTS";
 export const RECEIVE_CONTACT_ERRORS = "RECEIVE_CONTACT_ERRORS";
 
 const receiveAllContacts = contacts => {
@@ -17,6 +18,13 @@ const receiveContact = contact => {
     contact
   };
 };
+
+const receiveContacts = contactsNum => {
+  return {
+    type: RECEIVE_CONTACTS,
+    contactsNum
+  }
+}
 
 const receiveContactErrors = errors => {
   return {
@@ -38,5 +46,5 @@ export const createContact = contactData => dispatch => {
 
 export const createBulkContacts = contactDataArr => dispatch => {
   return ContactAPIUtil.createBulkContacts(contactDataArr)
-    .then(contacts => contacts.forEach(contact => dispatch(receiveContact(contact))));
+    .then(contacts => dispatch(receiveContacts(contacts.data.countCreated)));
 };
