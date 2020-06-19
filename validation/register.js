@@ -32,19 +32,6 @@ module.exports = function validateRegisterInput(data) {
     errors.passwordConfirm = 'Passwords must match';
   }
 
-  // if (Validator.isEmpty(data.phone)) {
-  //   errors.phone = 'Phone number is required';
-  // }
-
-  // if (!Validator.isLength(data.phone, { min: 10, max: 20 })) {
-  //   errors.phone = 'Phone number must be at least 10 digits';
-  // }
-
-  // if (Validator.isEmpty(data.admin)) {
-  //   errors.admin = 'Admin field is required';
-  // }
-
-
   return {
     errors,
     isValid: Object.keys(errors).length === 0

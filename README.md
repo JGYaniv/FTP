@@ -1,21 +1,40 @@
 ## Background and Overview  
-FTP is a lightweight CRM tool for protest organizers to communicate with fellow activists through SMS messages.  
+[FTP](https://ftp-crm.herokuapp.com/) is a lightweight CRM tool for protest organizers to communicate with fellow activists through SMS messages.  
 Admins have the ability to log-in via Desktop to add organizers who have access to the Mobile app. These organizer users can specify contacts as specific roles or groups in order to send more relevant messages. For example, users could send out important, “medical assistance requested” text only for contacts that have been designated as medics or a simple reminder message of an upcoming march to all members.  
+
+![](gifs/splash.gif)
+![](gifs/home.gif)
+
+#
+
+## Technologies Used
+* MongoDB
+* Express.js
+* React/Redux
+* Node.js
+* Twilio
 
 #
 
 ## Functionality and MVP  
 * Auth  
-  * Users can sign up only via Desktop
-  * BONUS: two step verification
+  * Users can sign up, log in, and log out
 
-* CRUD
-  * Users
-  * Preset Messages
-  * BONUS: upload users via CSV (desktop)
+* Contact Type
+  * Create contact types to categorize contacts
 
-* Sending mass text messages (SMS)
+![](gifs/contacttype.gif)
+
+* Contacts
+  * Add individual contacts or bulk upload using a CSV file
+
+![](gifs/contact.gif)
+
+* Send Mass Text Messages (SMS)
   * Utilizing Twilio API
+  * Send text messages to specific contact types
+
+![](gifs/message.gif)
 
 * BONUS: mobile app
 
@@ -80,5 +99,3 @@ Admins login to our application through the desktop app built in react, while us
 BONUS FEATURES:
 * Mobile app
 * Two step user auth
-
-z

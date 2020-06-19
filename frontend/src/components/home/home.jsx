@@ -30,7 +30,7 @@ class Home extends React.Component {
       </div>
 
         <MessageLog messages={this.props.messages}
-          fetchMessages={this.props.fetchMessages} />
+          users={this.props.users} />
 
           <footer className="home-footer">
             copyright boomerlee, yahnev, AK47, dobberman

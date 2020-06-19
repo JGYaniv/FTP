@@ -75,7 +75,8 @@ class ManageContactTypes extends React.Component {
           <h1>Add Contact Type</h1>
           <input type="text"
             placeholder="Enter Contact Type"
-            onChange={this.update} />
+            onChange={this.update}
+            maxLength="20" />
 
           <div>
             <button className="basic-btn" onClick={() => {
@@ -96,17 +97,18 @@ class ManageContactTypes extends React.Component {
           <input type="text"
             placeholder="Enter Contact Type"
             onChange={this.update}
-            value={this.state.name} />
+            value={this.state.name}
+            maxLength="20" />
 
-            <div>
-              <button className="basic-btn" onClick={() => {
-                this.props.updateContactType(contactTypeData, this.state.contactTypeId, this.state.contactType).then(res => this.props.fetchContactTypeCount(res.contactType.data.name));
-                this.setState({ clicked: "", name: ""  });
-                }}>EDIT</button>
+          <div>
+            <button className="basic-btn" onClick={() => {
+              this.props.updateContactType(contactTypeData, this.state.contactTypeId, this.state.contactType).then(res => this.props.fetchContactTypeCount(res.contactType.data.name));
+              this.setState({ clicked: "", name: ""  });
+              }}>EDIT</button>
 
-              <button className="basic-btn" onClick={() => {
-                this.setState({ clicked: "", name: "" });
-              }}>BACK</button>
+            <button className="basic-btn" onClick={() => {
+              this.setState({ clicked: "", name: "" });
+            }}>BACK</button>
           </div>
 
         </div>

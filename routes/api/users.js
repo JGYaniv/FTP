@@ -35,19 +35,22 @@ router.post('/signup', (req, res) => {
   }
 
   const email = req.body.email.toLowerCase();
-  
+    
   User.findOne({ email: email })
     .then(user => {
+      
       if (user) {
         errors.email = 'Email already exists';
         return res.status(400).json(errors);
       } else {
+        
         const newUser = new User({
-          email: req.body.email,
+          email: email,
           password: req.body.password,
           phone: req.body.phone,
           admin: req.body.admin
         });
+        
 
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -95,8 +98,9 @@ router.post('/login', (req, res) => {
               { expiresIn: 3600 },
               (err, token) => {
                 res.json({
+                  payload: payload,
                   success: true,
-                  token: 'Bearer ' + token
+                  token: 'Bearer ' + token, 
                 });
               }
             );
@@ -110,14 +114,15 @@ router.post('/login', (req, res) => {
 router.post('/', 
   passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      User.findOne({ email: req.body.email })
+      const email = req.body.email.toLowerCase();
+      User.findOne({ email: email })
         .then(user => {
           if (user) {
             errors.email = 'Email already exists';
             return res.status(400).json(errors);
           } else {
             const newUser = new User({
-              email: req.body.email,
+              email: email,
               password: req.body.password,
               phone: req.body.phone,
               admin: req.body.admin
