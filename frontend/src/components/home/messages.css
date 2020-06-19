@@ -19,13 +19,13 @@
 .messages-container form {
     display: flex;
     flex-direction: column;
-    margin-top: 5px;
+    margin-top: 7px;
 }
 
 .messages-container textarea {
-    height: 115px;
+    height: 100px;
     resize: none;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .messages-container select {
@@ -37,4 +37,10 @@
     top: 13px;
     width: 100%;
     height: 50px;
+}
+
+.char-count {
+    margin: 0;
+    font-size: 12px;
+    margin-bottom: 5px;
 }

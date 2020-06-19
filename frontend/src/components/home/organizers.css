@@ -6,12 +6,12 @@
     height: 300px;
     padding: 15px;
     /* border: 2px solid black; */
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: #ffd9d9;
     border-radius: 5px;
     position: relative;
     left: 20px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 

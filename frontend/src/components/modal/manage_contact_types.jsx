@@ -63,7 +63,7 @@ class ManageContactTypes extends React.Component {
           <div className="manage-contact-types-header">
             <h3>Contact Type</h3>
             <h3># of Contacts</h3>
-            <button className="basic-btn add-contact-btn" onClick={this.handleAddClick}>Add Contact</button>
+            <button className="basic-btn add-contact-btn" onClick={this.handleAddClick}>Add Contact Type</button>
           </div>
           {contactItem}
           
