@@ -27,7 +27,7 @@ class Splash extends React.Component {
 
           <h1 className="power">Fight The Power</h1>
           <img src={Protest} alt='protest' className="protest" />
-          <h2>Organize your DUDES</h2>
+          <h2>Organize with Ease</h2>
 
           <div className="splash-btns">
             <Link to="/login">
