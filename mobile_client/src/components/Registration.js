@@ -56,7 +56,7 @@ class Registration extends Component {
 
   render() {
     const { email, password, passwordConfirm, error, loading } = this.state;
-    const { form, section, errorTextStyle } = styles;
+    const { form, section, errorTextStyle, link } = styles;
 
     return (
       <Fragment>
@@ -99,10 +99,10 @@ class Registration extends Component {
           ) : (
             <Loading size={"large"} />
           )}
-        </View>
-        <TextLink onPress={this.props.authSwitch}>
+        <TextLink style={link} onPress={this.props.authSwitch}>
           Already have an account? Log in!
         </TextLink>
+        </View>
       </Fragment>
     );
   }
@@ -113,19 +113,24 @@ const styles = {
     width: "100%",
     borderTopWidth: 1,
     borderColor: "#ddd",
-    color: "red"
+    padding: 15,
+    position: 'absolute',
+    bottom: 143
   },
   section: {
     flexDirection: "row",
     borderBottomWidth: 1,
-    // backgroundColor: "#EEE",
+    backgroundColor: "#fff",
     borderColor: "#ddd",
   },
   errorTextStyle: {
     alignSelf: "center",
     fontSize: 18,
-    color: "red",
+    color: "black",
   },
+  link: {
+    color: '#fff',
+  }
 };
 
 

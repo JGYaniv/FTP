@@ -84,10 +84,10 @@ class Login extends Component {
             <Loading size={'large'} />
           }
 
-        </View>
         <TextLink onPress={this.props.authSwitch}>
           Don't have an account? Register!
         </TextLink>
+        </View>
       </Fragment>
     );
   }
@@ -99,6 +99,8 @@ const styles = {
     borderTopWidth: 1,
     borderColor: '#ddd',
     padding: 15,
+    position: 'absolute',
+    top: 405
   },
   section: {
     flexDirection: 'row',
@@ -109,7 +111,7 @@ const styles = {
   errorTextStyle: {
     alignSelf: 'center',
     fontSize: 18,
-    color: 'red'
+    color: 'black'
   }
 };
 
