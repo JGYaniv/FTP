@@ -33,8 +33,8 @@ export default class Auth extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.fontSize}>FIGHT THE POWER</Text>
-        <Image source={require("./img/flag.png")} />
+        <Text style={styles.ftp}>FIGHT THE <Text style={styles.red}>POWER</Text></Text>
+        <Image style={styles.flag} source={require("./img/flag.png")} />
         {this.whichForm()}
       </View>
     );
@@ -46,10 +46,28 @@ const styles = {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f72c2c",
+    backgroundColor: "#ef7070",
   },
 
   ftp: {
     fontSize: 30,
+    fontWeight: '600',
+    position: 'absolute',
+    left: 69,
+    top: 215,
+    color: "#FFF",
+    zIndex: 10,
+    // transform: [{rotate: "7deg"}]
+  },
+
+  red: {
+    color: "red",
+    fontWeight: '900',
+  },
+
+  flag: {
+    position: 'absolute',
+    bottom: "50%"
   }
+
 };

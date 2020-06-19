@@ -3,6 +3,7 @@ import { View, Text, Image } from 'react-native';
 import { Input, TextLink, Loading, Button } from './common';
 import axios from 'axios';
 import deviceStorage from '../services/deviceStorage';
+import path from '../../config/path';
 
 class Login extends Component {
   constructor(props){
@@ -24,7 +25,7 @@ class Login extends Component {
     this.setState({ error: '', loading: true });
 
     // NOTE Post to HTTPS only in production
-    axios.post("http://localhost:5000/api/users/login",{
+    axios.post(path + "/api/users/login",{
         email: email,
         password: password
     })
@@ -83,10 +84,10 @@ class Login extends Component {
             <Loading size={'large'} />
           }
 
-        </View>
         <TextLink onPress={this.props.authSwitch}>
           Don't have an account? Register!
         </TextLink>
+        </View>
       </Fragment>
     );
   }
@@ -98,6 +99,8 @@ const styles = {
     borderTopWidth: 1,
     borderColor: '#ddd',
     padding: 15,
+    position: 'absolute',
+    top: 405
   },
   section: {
     flexDirection: 'row',
@@ -108,7 +111,7 @@ const styles = {
   errorTextStyle: {
     alignSelf: 'center',
     fontSize: 18,
-    color: 'red'
+    color: 'black'
   }
 };
 
