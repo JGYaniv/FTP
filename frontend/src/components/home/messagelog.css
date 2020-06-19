@@ -22,12 +22,17 @@
     overflow-y: scroll;
 }
 
+.message-contact {
+    margin: 0 10px;
+    max-width: 150px;
+}
+
 .message-list-item {
     display: flex;
 }
 
 .message-time {
-    max-width: 170px;
+    max-width: 160px;
     margin: 0;
     color: #6f6f6f;
 }
@@ -36,10 +41,13 @@
     margin: 0;
     max-width: 100%;
     color: black;
+    margin-right: 10px;
 }
 
 .message-stats {
-    max-width: 170px;
+    max-width: 100px;
     margin: 0;
     color: black;
+    position: relative;
+    right: 0;
 }

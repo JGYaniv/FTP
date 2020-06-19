@@ -13,14 +13,14 @@ class MessageLog extends React.Component {
                 <p className="message-time">
                     {formatTime(message.date)}
                 </p>
-                <p>
+                <p className="message-contact">
                     TO {message.contactType}
                 </p>
                 <p className="message-text">
                     {message.text}
                 </p>
                 <p className="message-stats">
-                    {`${message.successCounter} / ${message.failureCounter}`}
+                    {message.count} SENT
                 </p>
             </li>
         ));
