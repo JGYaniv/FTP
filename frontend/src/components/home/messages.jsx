@@ -37,10 +37,10 @@ class Messages extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <textarea
               onChange={this.update("text")}
-              maxLength="140"
-              placeholder="Message content... (140 max char)"
+              maxLength="160"
+              placeholder="Message content... (160 max char)"
               value={this.state.text}></textarea>
-
+            <p className="char-count">{this.state.text.length} / 160</p>
             <select value={this.state.contactType} onChange={this.update("contactType")}>
               <option disabled value="">
                 Send To:

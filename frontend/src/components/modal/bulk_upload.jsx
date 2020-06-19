@@ -116,7 +116,7 @@ class BulkUpload extends React.Component {
     if (this.state.stage === 1) {
       component = 
       <div>
-        <button className="basic-btn" onClick={this.handleFileClick}>CHOOSE CSV FILE</button>
+        <button className="basic-btn file-btn" onClick={this.handleFileClick}>CHOOSE CSV FILE</button>
         <input id="file"
           type="file"
           accept=".csv"
@@ -126,8 +126,10 @@ class BulkUpload extends React.Component {
       </div>
     } else if (this.state.stage === 2) {
       component = 
-        <div className="bulk-contact-list">
-          {contactItems}
+        <div>
+          <div className="bulk-contact-list">
+            {contactItems}
+          </div>
           <div className="bulk-add-btns">
             <button className="basic-btn" onClick={() => this.setState({ stage: 3 })}>+</button>
             <button className="basic-btn" onClick={this.handleSubmit}>CONFIRM</button>
