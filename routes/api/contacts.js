@@ -37,7 +37,7 @@ router.get('/:id',
 
 router.post('/',
 
-  // passport.authenticate('jwt', {session: false} ),
+  passport.authenticate('jwt', {session: false} ),
   (req, res) => {
     const {errors, isValid } = validateContactInput(req.body);
   
@@ -56,13 +56,9 @@ router.post('/',
   }
 );
 
-// const createContact = new Promise(
-//   contactParams => Contact.create(contactParams) 
-// )
-
 router.post('/bulk',
 
-  // passport.authenticate('jwt', {session: false} ),
+  passport.authenticate('jwt', {session: false} ),
   (req, res) => {
     const allContacts = JSON.parse(req.body.contacts); 
     let countFailures = 0;

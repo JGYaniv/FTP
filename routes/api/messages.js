@@ -40,17 +40,25 @@ router.post('/',
       prom.then(messages => {
         // const successCounter = messages.filter(msg => !msg.errorCode).length;
         // const failureCounter = messages.length - successCounter;
-        
+        debugger
         const messageParams = {
           authorId: req.body.authorId, 
           text: req.body.text,
-          contactType: req.body.contactType
+          contactType: req.body.contactType,
+          count: messages.length
         }
 
+
         Message.create(messageParams)
-          .then(message => res.json({...message._doc}))
+          .then(message => {
+            debugger
+            res.json({...message._doc})
+          })
           // .then(message => res.json({...message._doc, successCounter, failureCounter }))
-          .catch(err => res.status(500).send({ message: 'error creating message homie' }));
+          .catch(err => {
+            debugger
+            res.status(500).send({ message: 'error creating message' })
+          });
        
       })
       .catch(error => res.status(400).send({message: `unable to retrieve contact of type:${req.body.contactType}`}))

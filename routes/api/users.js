@@ -34,7 +34,9 @@ router.post('/signup', (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email: req.body.email })
+  const email = req.body.email.toLowerCase();
+  
+  User.findOne({ email: email })
     .then(user => {
       if (user) {
         errors.email = 'Email already exists';
@@ -67,7 +69,7 @@ router.post('/login', (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const password = req.body.password;
 
   User.findOne({ email })

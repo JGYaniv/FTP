@@ -6,6 +6,7 @@ const passport = require('passport');
 const Contact = require('../../models/Contact');
 const validateContactTypeInput = require('../../validation/contactTypes');
 const ContactType = require("../../models/ContactType");
+const { json } = require("body-parser");
 
 router.get('/', 
   passport.authenticate('jwt', {session: false} ),
