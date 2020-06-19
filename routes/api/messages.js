@@ -7,6 +7,7 @@ const Message = require('../../models/Message');
 const validateMessageInput = require('../../validation/messages');
 const encryptor = require('../../modules/encryptor');
 const hiddenKey = process.env.hiddenKey ? process.env.hiddenKey : require('../../config/keys').hiddenKey;
+const User = require('../../models/User');
 
 const sendMessage = require('../../modules/sms_gateway');
 
@@ -65,13 +66,10 @@ router.post('/',
   }
 );
 
-router.get('/sample', (req,res) => {
-  Contact.find({contactType: "tester2"})
-    .then(contacts => { res.json(contacts)
+// router.delete('/wipe', (req,res) => {
+//   Contact.deleteMany({})
+//     .then(users => { res.json(users) })
 
-    })
-
-
-})
+// })
 
 module.exports = router;
