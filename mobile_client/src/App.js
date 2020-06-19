@@ -8,20 +8,34 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      jwt: '',
-      loading: true
-    }
+      jwt: "",
+      userId: "",
+      loading: true,
+    };
 
+    this.saveKey = deviceStorage.saveKey.bind(this);
+    this.loadKey = deviceStorage.loadKey.bind(this);
+    this.setUserId = this.setUserId.bind(this);
+    this.clearUserId = this.clearUserId.bind(this);
     this.newJWT = this.newJWT.bind(this);
     this.deleteJWT = deviceStorage.deleteJWT.bind(this);
     this.loadJWT = deviceStorage.loadJWT.bind(this);
     this.loadJWT();
+    this.loadKey("userId");
   }
 
   newJWT(jwt){
     this.setState({
       jwt: jwt
     });
+  }
+
+  setUserId(id){
+    this.setState({userId: id})
+  }
+
+  clearUserId(){
+    this.setState({userId: ""})
   }
 
   render() {
@@ -31,11 +45,19 @@ export default class App extends Component {
        );
     } else if (!this.state.jwt) {
       return (
-        <Auth newJWT={this.newJWT} />
+        <Auth 
+          newJWT={this.newJWT} 
+          setUserId={this.setUserId}
+        />
       );
     } else if (this.state.jwt) {
       return (
-        <LoggedIn jwt={this.state.jwt} deleteJWT={this.deleteJWT} />
+        <LoggedIn 
+          jwt={this.state.jwt} 
+          deleteJWT={this.deleteJWT} 
+          userId={this.state.userId}
+          clearUserId={this.clearUserId}
+        />
       );
     }
   }

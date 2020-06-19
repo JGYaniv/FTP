@@ -24,14 +24,16 @@ class Login extends Component {
 
     this.setState({ error: '', loading: true });
 
-    // NOTE Post to HTTPS only in production
     axios.post(path + "/api/users/login",{
         email: email,
         password: password
     })
     .then((response) => {
+      let userId = response.data.id ? response.data.id : "5eecbe90b401afc133ce1c71"
       deviceStorage.saveKey("id_token", response.data.token);
+      deviceStorage.saveKey("userId", userId);
       this.props.newJWT(response.data.token);
+      this.props.setUserId(userId);
     })
     .catch((error) => {
       console.log(error);

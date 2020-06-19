@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Button } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ScrollView, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { Loading } from '../components/common/';
 import axios from 'axios';
 import { CustomMessage } from '../components/CustomMessage';
@@ -24,35 +24,53 @@ export default class LoggedIn extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Button
-          style={styles.logout}
-          onPress={this.props.deleteJWT}
-          title="LOGOUT"
-        />
-        <CustomMessage jwt={this.props.jwt} />
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <TouchableOpacity
+            style={styles.logout}
+            onPress={() => {
+              this.props.deleteJWT();
+              this.props.clearUserId();}}>
+            <Text style={styles.text}>Logout</Text>
+          </TouchableOpacity>
+          <CustomMessage jwt={this.props.jwt} userId={this.props.userId} />
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
 
 const styles = {
   container: {
+    // padding: 20,
     flex: 1,
-    justifyContent: 'center',
-  },
-  emailText: {
-    alignSelf: 'center',
-    color: 'black',
-    fontSize: 20
-  },
-  errorText: {
-    alignSelf: 'center',
-    fontSize: 18,
-    color: 'red'
+    // width: '100%',
+    // height: '100%',
+    justifyContent: "center",
+    backgroundColor: "#ef7070",
   },
   logout: {
     position: "absolute",
-    top: 0
-  }
+    top: 50,
+    left: 5,
+    right: 5,
+    transform: [
+      // {translateX: '-50%'},
+      // {translateY: '-50%'},
+    ],
+    backgroundColor: "#F15656",
+    borderRadius: 25,
+    borderColor: "black",
+    borderWidth: 1,
+    padding: 10,
+  },
+
+  text: {
+    alignSelf: "center",
+    color: "white",
+    fontSize: 18,
+    fontWeight: "700",
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
 };

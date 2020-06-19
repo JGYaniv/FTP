@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { Login, Registration } from '../components';
 
 export default class Auth extends Component {
@@ -21,22 +21,26 @@ export default class Auth extends Component {
   whichForm() {
     if(!this.state.showLogin){
       return(
-        <Registration newJWT={this.props.newJWT} authSwitch={this.authSwitch} />
+        <Registration newJWT={this.props.newJWT} authSwitch={this.authSwitch} setUserId={this.props.setUserId}/>
       );
     } else {
       return(
-        <Login newJWT={this.props.newJWT} authSwitch={this.authSwitch} />
+        <Login newJWT={this.props.newJWT} authSwitch={this.authSwitch} setUserId={this.props.setUserId}/>
       );
     }
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.ftp}>FIGHT THE <Text style={styles.red}>POWER</Text></Text>
-        <Image style={styles.flag} source={require("./img/flag.png")} />
-        {this.whichForm()}
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Text style={styles.ftp}>
+            FIGHT THE <Text style={styles.red}>POWER</Text>
+          </Text>
+          <Image style={styles.flag} source={require("./img/flag.png")} />
+          {this.whichForm()}
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -51,8 +55,8 @@ const styles = {
 
   ftp: {
     fontSize: 30,
-    fontWeight: '600',
-    position: 'absolute',
+    fontWeight: "600",
+    position: "absolute",
     left: 69,
     top: 215,
     color: "#FFF",
@@ -62,12 +66,11 @@ const styles = {
 
   red: {
     color: "red",
-    fontWeight: '900',
+    fontWeight: "900",
   },
 
   flag: {
-    position: 'absolute',
-    bottom: "50%"
-  }
-
+    position: "absolute",
+    bottom: "50%",
+  },
 };
