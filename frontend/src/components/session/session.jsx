@@ -10,6 +10,7 @@ class Session extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -32,18 +33,18 @@ class Session extends React.Component {
 
   
   renderErrors() {
-    return (
-      <p>{this.props.errors}</p>
-    )
-    // return (
-    //   <ul>
-    //     {this.props.errors.map((error, i) => (
-    //       <li key={`error-${i}`}>
-    //         {errors}
-    //       </li>
-    //     ))}
-    //   </ul>
-    // );
+    return this.props.errors.map(error => {
+      return (
+        <p className="error">{error}</p>
+      )
+    })
+  }
+
+  demoLogin(e) {
+    e.preventDefault();
+    const demoUser = { email: "demo@demo.com", password: "password" };
+
+    this.props.action(demoUser);
   }
 
 
@@ -62,6 +63,15 @@ class Session extends React.Component {
       )
     }
 
+    let demoLoginBtn;
+    if (this.props.formType === 'Login') {
+      demoLoginBtn = (
+        <button className="session-submit" onClick={this.demoLogin}>
+          Demo Login
+        </button>
+      );
+    }
+
     return (
       <div className="login-container">
     
@@ -78,20 +88,20 @@ class Session extends React.Component {
                     value={this.state.email}
                     onChange={this.update('email')}
                     className="session-input"
-                    placeholder="alexlee@alexlee.com"
+                    placeholder="Email"
                   />
 
                   <input type="password"
                     value={this.state.password}
                     onChange={this.update('password')}
                     className="session-input"
-                    placeholder="password"
+                    placeholder="Password"
                   /> 
 
                   {passwordConfirm}
-
-                  <input className="session-submit" type="submit" value={this.props.formType}/>
                   {this.renderErrors()}
+                  <input className="session-submit" type="submit" value={this.props.formType}/>
+                  {demoLoginBtn}
               </div>
 
             </form>
