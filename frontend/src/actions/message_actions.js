@@ -34,6 +34,5 @@ export const fetchMessages = () => dispatch => {
 export const createMessage = messageData => dispatch => {
   return MessageAPIUtil.createMessage(messageData)
     .then(message => dispatch(receiveMessage(message)),
-      err => console.log(err));
-      // err => dispatch(receiveMessageErrors(err.response.data)));
+      err => dispatch(receiveMessageErrors(err.response.data)));
 };

@@ -8,7 +8,8 @@ class ManageContactTypes extends React.Component {
     this.state = {
       clicked: "",
       name: "",
-      contactTypeId: ""
+      contactTypeId: "",
+      contactType: ""
     };
 
     this.handleAddClick = this.handleAddClick.bind(this);
@@ -48,7 +49,7 @@ class ManageContactTypes extends React.Component {
             {this.props.contactTypeCount[contact.name] ? this.props.contactTypeCount[contact.name].data : 0}
           </p>
           <div className="contact-type-item-buttons">
-            <i onClick={() => this.setState({ clicked: "edit", name: contact.name, contactTypeId: contact._id })} className="fas fa-edit"></i>
+            <i onClick={() => this.setState({ clicked: "edit", name: contact.name, contactTypeId: contact._id, contactType: contact.name })} className="fas fa-edit"></i>
             <i onClick={() => this.props.deleteContactType(contact.name, contact._id).then(() => this.props.fetchContacts())} className="fas fa-trash-alt"></i>
           </div>
         </div>
@@ -99,7 +100,7 @@ class ManageContactTypes extends React.Component {
 
             <div>
               <button className="basic-btn" onClick={() => {
-                this.props.updateContactType(contactTypeData, this.state.contactTypeId);
+                this.props.updateContactType(contactTypeData, this.state.contactTypeId, this.state.contactType).then(res => this.props.fetchContactTypeCount(res.contactType.data.name));
                 this.setState({ clicked: "", name: ""  });
                 }}>EDIT</button>
 

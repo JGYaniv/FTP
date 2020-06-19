@@ -43,7 +43,7 @@ class Splash extends React.Component {
 
         
 
-        <footer>
+        <footer className="splash-footer">
           FTP is a lightweight CRM tool for protest organizers to communicate with fellow activists through SMS messages.
         </footer>
 

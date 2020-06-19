@@ -13,6 +13,9 @@ class MessageLog extends React.Component {
                 <p className="message-time">
                     {formatTime(message.date)}
                 </p>
+                <p>
+                    TO {message.contactType}
+                </p>
                 <p className="message-text">
                     {message.text}
                 </p>

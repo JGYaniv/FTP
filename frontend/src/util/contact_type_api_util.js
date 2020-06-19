@@ -8,8 +8,8 @@ export const createContactType = typeData => {
   return axios.post('/api/contact_types', typeData);
 };
 
-export const updateContactType = (typeData, typeId) => {
-  return axios.patch(`/api/contact_types/edit/${typeId}`, typeData);
+export const updateContactType = (typeData, typeName) => {
+  return axios.patch(`/api/contact_types/edit/${typeName}`, typeData);
 };
 
 export const deleteContactType = typeName => {

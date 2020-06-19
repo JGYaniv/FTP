@@ -62,8 +62,8 @@ export const createContactType = typeData => dispatch => {
       err => dispatch(receiveContactTypeErrors(err)));
 };
 
-export const updateContactType = (typeData, typeId) => dispatch => {
-  return ContactTypeAPIUtil.updateContactType(typeData, typeId)
+export const updateContactType = (typeData, typeId, typeName) => dispatch => {
+  return ContactTypeAPIUtil.updateContactType(typeData, typeName)
     .then(contactType => dispatch(editContactType(contactType, typeId)),
       err => dispatch(receiveContactTypeErrors(err)));
 };

@@ -14,7 +14,7 @@ const mDTP = dispatch => {
   return {
     fetchContactTypes: () => dispatch(fetchContactTypes()),
     createContactType: typeData => dispatch(createContactType(typeData)),
-    updateContactType: (typeData, typeId) => dispatch(updateContactType(typeData, typeId)),
+    updateContactType: (typeData, typeId, typeName) => dispatch(updateContactType(typeData, typeId, typeName)),
     deleteContactType: (typeName, typeId) => dispatch(deleteContactType(typeName, typeId)),
     fetchContacts: () => dispatch(fetchContacts()),
     fetchContactTypeCount: typeName => dispatch(fetchContactTypeCount(typeName))

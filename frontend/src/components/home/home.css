@@ -1,5 +1,5 @@
 .home-container {
-    height: 160vh;
+    /* height: 160vh; */
     background-image: linear-gradient(to bottom,#ef7070,#f72c2c);
 }
 
@@ -39,6 +39,15 @@
     outline: none;
 }
 
-.home-container footer {
+.home-footer {
+    border-top: 1px solid #303339;
+    margin: 0 auto;
+    margin-top: 40px;
+    max-width: 1000px;
     color: white;
+    height: 100px;
+    position: relative;
+    left: 20px;
+    text-align: center;
+    padding-top: 20px;
 }
