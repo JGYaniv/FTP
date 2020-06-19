@@ -5,6 +5,7 @@ export const RECEIVE_CONTACT_TYPE = "RECEIVE_CONTACT_TYPE";
 export const EDIT_CONTACT_TYPE = "EDIT_CONTACT_TYPE";
 export const REMOVE_CONTACT_TYPE = "REMOVE_CONTACT_TYPE";
 export const RECEIVE_CONTACT_TYPE_ERRORS = "RECEIVE_CONTACT_TYPE_ERRORS";
+export const RECEIVE_CONTACT_TYPE_COUNT = "RECEIVE_CONTACT_TYPE_COUNT";
 
 const receiveAllContactTypes = contactTypes => {
   return {
@@ -42,6 +43,14 @@ const receiveContactTypeErrors = errors => {
   };
 };
 
+const receiveContactTypeCount = (count, typeName) => {
+  return {
+    type: RECEIVE_CONTACT_TYPE_COUNT,
+    count,
+    typeName
+  };
+};
+
 export const fetchContactTypes = () => dispatch => {
   return ContactTypeAPIUtil.fetchContactTypes()
     .then(contactTypes => dispatch(receiveAllContactTypes(contactTypes)));
@@ -53,13 +62,18 @@ export const createContactType = typeData => dispatch => {
       err => dispatch(receiveContactTypeErrors(err)));
 };
 
-export const updateContactType = (typeData, typeId) => dispatch => {
-  return ContactTypeAPIUtil.updateContactType(typeData, typeId)
+export const updateContactType = (typeData, typeId, typeName) => dispatch => {
+  return ContactTypeAPIUtil.updateContactType(typeData, typeName)
     .then(contactType => dispatch(editContactType(contactType, typeId)),
       err => dispatch(receiveContactTypeErrors(err)));
 };
 
-export const deleteContactType = typeId => dispatch => {
-  return ContactTypeAPIUtil.deleteContactType(typeId)
+export const deleteContactType = (typeName, typeId) => dispatch => {
+  return ContactTypeAPIUtil.deleteContactType(typeName)
     .then(() => dispatch(removeContactType(typeId)));
+};
+
+export const fetchContactTypeCount = typeName => dispatch => {
+  return ContactTypeAPIUtil.fetchContactTypeCount(typeName)
+    .then(count => dispatch(receiveContactTypeCount(count, typeName)));
 };

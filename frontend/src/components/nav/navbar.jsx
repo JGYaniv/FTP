@@ -1,7 +1,7 @@
 import React from 'react';
 import NavbarCSS from './navbar.css';
 import { withRouter } from 'react-router-dom';
-import PDPSI from '../../images/pdpsi.png';
+import flag from '../../images/flag.png';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <nav className="splash-nav">
-                    <div><img src={PDPSI} alt='flag' className="flag" /></div>
+                    <div><img src={flag} alt='flag' className="flag" /></div>
                     <ul>
                         <li>
                             <a href="https://www.linkedin.com/in/williamjsuh/"><i className="fab fa-linkedin"></i></a>
@@ -39,7 +39,7 @@ class NavBar extends React.Component {
         } else {
             return (
                 <nav className="splash-nav">
-                    <a href="/"><img src={PDPSI} alt='flag' className="flag" /></a>
+                    <a href="/"><img src={flag} alt='flag' className="flag" /></a>
                     <ul>
                         <li>
                             <a href="https://www.linkedin.com/in/williamjsuh/"><i className="fab fa-linkedin"></i></a>

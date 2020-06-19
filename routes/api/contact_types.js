@@ -6,6 +6,7 @@ const passport = require('passport');
 const Contact = require('../../models/Contact');
 const validateContactTypeInput = require('../../validation/contactTypes');
 const ContactType = require("../../models/ContactType");
+const { json } = require("body-parser");
 
 router.get('/', 
   passport.authenticate('jwt', {session: false} ),
@@ -48,7 +49,7 @@ router.delete('/delete/:name',
 });
 
 router.get('/count/:name', 
-
+  passport.authenticate('jwt', {session: false} ),  
   (req,res) => {
 
     Contact.countDocuments({"contactType": req.params.name})
@@ -58,18 +59,27 @@ router.get('/count/:name',
 );
 
 
-router.patch('/edit/:id', 
+router.patch('/edit/:name', 
   passport.authenticate('jwt', {session: false} ),
   (req, res) => {
+  
+    Contact.find({"contactType": req.params.name})
+      .then(contacts => Promise.all(contacts.forEach(contact=> {
+        contact.contactType = req.body.name;
+        contact.save();
+      })
+      .catch(e => res.status(400).send("contacts didn't edit"))
+      ))
+      .then(
+        ContactType.findOne({"name": req.params.name})
+          .then(ct => {
+            ct.name = req.body.name;
+            ct.save()
+              .then(ct => res.json(ct))
+              .catch(e => res.status(400).json(e))
+          })
+      )
 
-  ContactType.findById(req.params.id)
-    .then(contactType => {
-      contactType.name = req.body.name;
-      contactType.save()
-        .then(contactType => res.json(contactType))
-        .catch(err => res.status(400).json(err))
-      
-    })
 });
 
 

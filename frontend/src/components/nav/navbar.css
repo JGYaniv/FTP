@@ -1,6 +1,6 @@
 .splash-nav {
-    height: 12.5vh;
-    padding: 20px;
+    /* height: 12.5vh; */
+    padding: 20px 150px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -36,7 +36,7 @@
 
 
 .flag {
-    position: absolute;
+    /* position: absolute; */
     width: 70px;
     left: 50px;
     top: 15px;

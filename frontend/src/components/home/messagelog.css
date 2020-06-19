@@ -1,4 +1,5 @@
 .messagelog-container {
+    margin: 0 auto;
     margin-top: 20px;
     width: 95%;
     background-color: #ffd9d9;
@@ -6,7 +7,7 @@
     padding: 5px 10px 0px 10px;
     position: relative;
     left: 20px;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 .message-list-header {
@@ -21,12 +22,17 @@
     overflow-y: scroll;
 }
 
+.message-contact {
+    margin: 0 10px;
+    max-width: 150px;
+}
+
 .message-list-item {
     display: flex;
 }
 
 .message-time {
-    max-width: 170px;
+    max-width: 160px;
     margin: 0;
     color: #6f6f6f;
 }
@@ -35,10 +41,13 @@
     margin: 0;
     max-width: 100%;
     color: black;
+    margin-right: 10px;
 }
 
 .message-stats {
-    max-width: 170px;
+    max-width: 100px;
     margin: 0;
     color: black;
+    position: relative;
+    right: 0;
 }

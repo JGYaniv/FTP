@@ -3,12 +3,16 @@ const twilioAuthToken = process.env.twilioAuthToken ? process.env.twilioAuthToke
 const client = require('twilio')(twilioAccountSid, twilioAuthToken);
 
 module.exports = sendMessage = (body, phoneNumber) => {
+    debugger
     return client.messages
         .create({
             body: body,
             from: "+12026839082",
             to: phoneNumber
         })
-        .catch(e => ({ status: e.status, errorCode: e.code }))
+        .catch(e => {
+            debugger; 
+            return { status: e.status, errorCode: e.code }
+        })
 }
 

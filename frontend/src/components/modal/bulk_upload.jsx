@@ -30,7 +30,6 @@ class BulkUpload extends React.Component {
       fileReader.readAsText(file);
       fileReader.onloadend = () => {
         this.bulkContacts = parser(fileReader.result.trim());
-        console.log(this.bulkContacts);
         this.setState({ stage: 2 });
       }
     }

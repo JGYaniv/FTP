@@ -18,7 +18,12 @@ const MessageSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  count: {
+    type: Number, 
+    default: 0
   }
+
 });
 
 module.exports = Message = mongoose.model('Message', MessageSchema);
