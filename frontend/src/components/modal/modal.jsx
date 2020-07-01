@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import ModalCSS from './modal.css'
 import AddUser from './add_user_container';
 import EditUser from './edit_user_container';
-// import ManageContacts from '../../components/modal/manage_contacts'
 import CreateContactContainer from './create_contact_container'
-// import BulkUploadContacts from '../../components/modal/bulk_upload_contacts'
 import ManageContactTypesContainer from './manage_contact_types_container';
 import BulkUploadContainer from './bulk_upload_container';
 import DeleteUser from './delete_user_container'
@@ -26,15 +24,9 @@ function Modal({modal, closeModal}) {
     case 'deleteUser':
       component = <DeleteUser closeModal={closeModal}/>
       break;
-    // case 'manageContacts':
-    //   component = <ManageContacts />;
-    //   break;
     case 'createContact':
       component = <CreateContactContainer />;
       break;
-    // case 'bulkUploadContacts':
-    //   component = <bulkUploadContacts />;
-    //   break;
     case 'manageTypes':
       component = <ManageContactTypesContainer />
       break;

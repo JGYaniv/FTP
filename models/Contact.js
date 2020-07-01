@@ -11,7 +11,6 @@ const ContactSchema = new Schema({
     type: String, 
     default: "general",
     index: true,
-    // unique: true
   }
 
 });

@@ -40,7 +40,6 @@ router.post('/',
 router.delete('/delete/:name', 
   passport.authenticate('jwt', {session: false} ),
   (req, res) => {
-    // debugger
     Contact.deleteMany({"contactType": req.params.name})
       .then((ContactType.deleteOne({"name": req.params.name}))
         .catch(err => res.status(400).json({msg: "CT not found"})))     

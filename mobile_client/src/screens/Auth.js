@@ -61,7 +61,6 @@ const styles = {
     top: 215,
     color: "#FFF",
     zIndex: 10,
-    // transform: [{rotate: "7deg"}]
   },
 
   red: {

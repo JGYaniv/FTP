@@ -82,8 +82,6 @@ router.post('/bulk',
 
     }))
     .then(() => res.json({countCreated: allContacts.length-countFailures, countFailures}))
-    
-    // console.log(contactFailures);
   }
 );
 

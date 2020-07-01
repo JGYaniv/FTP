@@ -2,9 +2,7 @@
     width: 49%;
     height: 320px;
     position: relative;
-    /* right: 2.5%; */
     padding: 15px;
-    /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
     background-color: #ffd9d9;
@@ -25,7 +23,6 @@
 .messages-container textarea {
     height: 100px;
     resize: none;
-    /* margin-bottom: 10px; */
 }
 
 .messages-container select {

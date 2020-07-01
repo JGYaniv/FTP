@@ -1,6 +1,6 @@
 import React from 'react';
 import AddUserCSS from './adduser.css'
-// can be combined w edit user into one user form to DRY
+
 class AddUser extends React.Component {
     constructor(props) {
         super(props)

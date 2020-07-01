@@ -1,5 +1,4 @@
 .home-container {
-    /* height: 160vh; */
     background-image: linear-gradient(to bottom,#ef7070,#f72c2c);
 }
 
@@ -22,7 +21,6 @@
     text-transform: capitalize;
     width: 100px;
     padding: 5px;
-    /* border: 1px solid #36393F; */
     border: none;
     border-radius: 5px;
 

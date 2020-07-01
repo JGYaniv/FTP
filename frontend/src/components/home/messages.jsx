@@ -23,7 +23,6 @@ class Messages extends React.Component {
         const message = this.state;
         this.props.createMessage(message);
         this.setState({ text: "", contactType: "" });
-        // this.forceUpdate();
     }
 
     render() {
