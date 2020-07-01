@@ -13,7 +13,6 @@ export default class LoggedIn extends Component {
       email: '',
       error: ''
     }
-    // this.headers = {}
   }
 
   componentDidMount(){
@@ -42,10 +41,7 @@ export default class LoggedIn extends Component {
 
 const styles = {
   container: {
-    // padding: 20,
     flex: 1,
-    // width: '100%',
-    // height: '100%',
     justifyContent: "center",
     backgroundColor: "#ef7070",
   },
@@ -55,8 +51,6 @@ const styles = {
     left: 5,
     right: 5,
     transform: [
-      // {translateX: '-50%'},
-      // {translateY: '-50%'},
     ],
     backgroundColor: "#F15656",
     borderRadius: 25,

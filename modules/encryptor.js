@@ -36,7 +36,3 @@ const encryptor = (cipher) => {
 module.exports = encryptor;
 
 const encrypt = encryptor("pizzakey")
-// console.log(encrypt.encrypt("12345"))
-// console.log(encrypt.decrypt("=>DE@"));
-
-// console.log(encrypt.decrypt(">=CF?>CGEB"));

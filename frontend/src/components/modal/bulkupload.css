@@ -1,6 +1,5 @@
 .bulk-upload {
     width: 500px;
-    /* height: 300px; */
     padding: 30px;
     border-radius: 10px;
     background-color: #ffd9d9;
@@ -22,7 +21,6 @@
 
 .bulk-contact-list {
   overflow-y: auto;
-  /* height: 80%; */
   max-height: 200px;
   margin: 10px 0 10px 0;
 }

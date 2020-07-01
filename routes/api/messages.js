@@ -39,8 +39,6 @@ router.post('/',
           sendMessage(text, phone)
         }, e => console.log(e)))})
       prom.then(messages => {
-        // const successCounter = messages.filter(msg => !msg.errorCode).length;
-        // const failureCounter = messages.length - successCounter;
         debugger
         const messageParams = {
           authorId: req.body.authorId, 
@@ -55,7 +53,6 @@ router.post('/',
             debugger
             res.json({...message._doc})
           })
-          // .then(message => res.json({...message._doc, successCounter, failureCounter }))
           .catch(err => {
             debugger
             res.status(500).send({ message: 'error creating message' })
@@ -65,11 +62,5 @@ router.post('/',
       .catch(error => res.status(400).send({message: `unable to retrieve contact of type:${req.body.contactType}`}))
   }
 );
-
-// router.delete('/wipe', (req,res) => {
-//   Contact.deleteMany({})
-//     .then(users => { res.json(users) })
-
-// })
 
 module.exports = router;

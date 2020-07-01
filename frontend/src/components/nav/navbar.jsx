@@ -22,10 +22,6 @@ class NavBar extends React.Component {
                 <nav className="splash-nav">
                     <div><img src={flag} alt='flag' className="flag" /></div>
                     <ul>
-                        {/* <li>
-                            <a href="https://www.linkedin.com/in/williamjsuh/"><i className="fab fa-linkedin"></i></a>
-                        </li> */}
-
                         <li>
                             <a href="https://github.com/JGYaniv/FTP"><i className="fab fa-github"></i></a>
                         </li>
@@ -41,10 +37,6 @@ class NavBar extends React.Component {
                 <nav className="splash-nav">
                     <a href="/"><img src={flag} alt='flag' className="flag" /></a>
                     <ul>
-                        <li>
-                            <a href="https://www.linkedin.com/in/williamjsuh/"><i className="fab fa-linkedin"></i></a>
-                        </li>
-
                         <li>
                             <a href="https://github.com/JGYaniv/FTP"><i className="fab fa-github"></i></a>
                         </li>

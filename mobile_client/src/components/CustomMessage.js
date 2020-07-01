@@ -31,7 +31,6 @@ class CustomMessage extends Component {
       const { text, contactType } = this.state;
       const userId = this.props.userId;
       const auth = this.props.jwt;
-      // debugger
 
       axios
         .post("https://ftp-crm.herokuapp.com/api/messages", {
@@ -102,8 +101,6 @@ class CustomMessage extends Component {
 }
 const styles = {
     form: {
-        // width: '100%',
-        // height: 200,
         borderTopWidth: 1,
         borderColor: '#ddd',
     },
@@ -129,8 +126,6 @@ const styles = {
       left: 5,
       right: 5,
       transform: [
-        // {translateX: '-50%'},
-        // {translateY: '-50%'},
       ],
       backgroundColor: "#F15656",
       borderRadius: 25,
@@ -141,12 +136,6 @@ const styles = {
 
     picker: {
       height: 100,
-      // width: 150, 
-      // position: 'absolute',
-      // bottom: 50,
-      // left: 30,
-      // right: 30,
-      // paddingBottom: 50,
       color: "#F15656",
       backgroundColor: "#fff",
     },
@@ -159,14 +148,10 @@ const styles = {
     tinput: {
       flexDirection: 'row',
       height: 100,
-      // maxHeight: 100,
       borderBottomWidth: 1,
       backgroundColor: '#fff',
       borderColor: 'black',
       fontSize: 20,
-      // left: 10,
-      // right: 10,
-      // top: 0,
       marginBottom: 10,
       paddingLeft: 10,
       paddingRight: 10,

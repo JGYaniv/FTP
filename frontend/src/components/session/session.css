@@ -9,7 +9,6 @@
 .login-form-container {
     position: absolute;
     width: 450px;
-    /* height: 450px; */
     padding: 30px;
     background-color: white;
     border-radius: 10px;
@@ -38,7 +37,6 @@
     border: 1px solid rgba(0, 0, 0, 0.3);
 
     border-radius: 3px;
-    /* background-color: rgba(0, 0, 0, 0.1); */
 
     padding-left: 10px;
     font-size: 16px;
@@ -72,7 +70,6 @@
     text-transform: capitalize;
 
     padding: 13px;
-    /* border: 1px solid #36393F; */
     border: none;
     border-radius: 3px;
     margin-bottom: 6px;

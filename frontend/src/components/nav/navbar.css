@@ -36,7 +36,6 @@
 
 
 .flag {
-    /* position: absolute; */
     width: 70px;
     left: 50px;
     top: 15px;
@@ -51,7 +50,6 @@
     text-transform: capitalize;
 
     padding: 5px;
-    /* border: 1px solid #36393F; */
     border: none;
     border-radius: 5px;
 
