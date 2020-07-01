@@ -18,6 +18,9 @@
 .contact-btns button {
     width: 100%;
     height: 50px;
+}
+
+.contact-btns button:not(:last-of-type) {
     margin-right: 5px;
 }
 
