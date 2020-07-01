@@ -33,7 +33,7 @@ class Home extends React.Component {
           users={this.props.users} />
 
           <footer className="home-footer">
-            copyright boomerlee, yahnev, AK47, dobberman
+          Created by <a href="https://www.linkedin.com/in/adriantaehyunkim/">Adrian Kim</a>, <a href="https://www.linkedin.com/in/aklee2106/">Alex Lee</a>, <a href="https://www.linkedin.com/in/williamjsuh/">William Suh</a>, and <a href="https://www.jgyaniv.github.io">Jonathan Yaniv</a>
           </footer>
       </div>
     )

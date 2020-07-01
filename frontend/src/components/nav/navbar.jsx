@@ -41,9 +41,9 @@ class NavBar extends React.Component {
                 <nav className="splash-nav">
                     <a href="/"><img src={flag} alt='flag' className="flag" /></a>
                     <ul>
-                        <li>
+                        {/* <li>
                             <a href="https://www.linkedin.com/in/williamjsuh/"><i className="fab fa-linkedin"></i></a>
-                        </li>
+                        </li> */}
 
                         <li>
                             <a href="https://github.com/JGYaniv/FTP"><i className="fab fa-github"></i></a>

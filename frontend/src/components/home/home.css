@@ -51,3 +51,11 @@
     text-align: center;
     padding-top: 20px;
 }
+
+.home-footer a{
+    color: rgb(215, 215, 215);
+}
+
+.home-footer a:hover{
+    color: white;
+}
